@@ -42,8 +42,8 @@ const expectedFilesInDistDir = [
 
   'icon.png',
 
-  'img/',
-  'img/.gitignore',
+  'res/',
+  'res/.gitignore',
 
   'index.html',
 
