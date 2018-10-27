@@ -76,8 +76,11 @@ gulp.task('clean', (done) => {
 });
 
 gulp.task('copy', [
+  'copy:bootstrap-css',
+  'copy:bootstrap-js',
+  'copy:photo-sphere-viewer',
   'copy:.htaccess',
-  'copy:index.html',
+  'copy:index.php',
   'copy:jquery',
   'copy:license',
   'copy:main.css',
@@ -85,13 +88,28 @@ gulp.task('copy', [
   'copy:normalize'
 ]);
 
+gulp.task('copy:bootstrap-css', () =>
+    gulp.src(['node_modules/bootswatch/dist/flatly/bootstrap.css'])
+        .pipe(gulp.dest(`${dirs.dist}/css/vendor`))
+);
+
+gulp.task('copy:bootstrap-js', () =>
+    gulp.src(['node_modules/bootstrap/dist/js/bootstrap.js'])
+        .pipe(gulp.dest(`${dirs.dist}/js/vendor`))
+);
+
+gulp.task('copy:photo-sphere-viewer', () =>
+    gulp.src(['node_modules/photo-sphere-viewer/dist/photo-sphere-viewer.min.js'])
+        .pipe(gulp.dest(`${dirs.dist}/js/vendor`))
+);
+
 gulp.task('copy:.htaccess', () =>
   gulp.src('node_modules/apache-server-configs/dist/.htaccess')
     .pipe(plugins().replace(/# ErrorDocument/g, 'ErrorDocument'))
     .pipe(gulp.dest(dirs.dist))
 );
 
-gulp.task('copy:index.html', () => {
+gulp.task('copy:index.php', () => {
   const hash = ssri.fromData(
     fs.readFileSync('node_modules/jquery/dist/jquery.min.js'),
     {algorithms: ['sha256']}
