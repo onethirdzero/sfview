@@ -30,6 +30,17 @@ a guideline and the expectation is that our development efforts are widely overl
 * (In Development) Persistent Logins and Accounts
 * (In Development) The ability for users to upload new locations
 
+## Dev instructions
+
+Make changes to the src/ folder, then run `npm run build` to populate the dist folder. Host the dist folder.
+
+If eslint is erroring and you want to force a build anyway, you can use `npm run lintless`.
+
+To add a plugin, run `npm install <pkg>`, then see to it that gulp transfers any needed scripts/css etc which need to be
+referenced by code. (Do not reference node_modules directly, as that will not be distributed to the server). There must
+be a smart way to get gulp to copy the files, but I've simply been editing the gulpfile. Look at what I've done with
+bootstrap for guidance.
+
 ## Browser support
 
 * Chrome *(latest 2)*
