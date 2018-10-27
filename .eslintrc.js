@@ -11,16 +11,23 @@ module.exports = {
     },
     "rules": {
         "indent": [
-            "error",
+            "warn",
             2
         ],
         "quotes": [
-            "error",
+            "warn",
             "single"
         ],
         "semi": [
-            "error",
+            "warn",
             "always"
+        ],
+        "no-unused-vars": [
+            "warn"
+        ],
+        "max-len": [
+            "warn",
+            120
         ]
     }
 };
