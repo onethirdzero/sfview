@@ -78,7 +78,8 @@ gulp.task('clean', (done) => {
 gulp.task('copy', [
   'copy:bootstrap-css',
   'copy:bootstrap-js',
-  'copy:photo-sphere-viewer',
+  'copy:photo-sphere-viewer-css',
+  'copy:photo-sphere-viewer-js',
   'copy:.htaccess',
   'copy:index.php',
   'copy:jquery',
@@ -89,18 +90,23 @@ gulp.task('copy', [
 ]);
 
 gulp.task('copy:bootstrap-css', () =>
-    gulp.src(['node_modules/bootswatch/dist/flatly/bootstrap.css'])
-        .pipe(gulp.dest(`${dirs.dist}/css/vendor`))
+  gulp.src(['node_modules/bootswatch/dist/flatly/bootstrap.css'])
+    .pipe(gulp.dest(`${dirs.dist}/css/vendor`))
 );
 
 gulp.task('copy:bootstrap-js', () =>
-    gulp.src(['node_modules/bootstrap/dist/js/bootstrap.js'])
-        .pipe(gulp.dest(`${dirs.dist}/js/vendor`))
+  gulp.src(['node_modules/bootstrap/dist/js/bootstrap.js'])
+    .pipe(gulp.dest(`${dirs.dist}/js/vendor`))
 );
 
-gulp.task('copy:photo-sphere-viewer', () =>
-    gulp.src(['node_modules/photo-sphere-viewer/dist/photo-sphere-viewer.min.js'])
-        .pipe(gulp.dest(`${dirs.dist}/js/vendor`))
+gulp.task('copy:photo-sphere-viewer-css', () =>
+  gulp.src(['node_modules/photo-sphere-viewer/dist/photo-sphere-viewer.css'])
+    .pipe(gulp.dest(`${dirs.dist}/css/vendor`))
+);
+
+gulp.task('copy:photo-sphere-viewer-js', () =>
+  gulp.src(['node_modules/photo-sphere-viewer/dist/photo-sphere-viewer.js'])
+    .pipe(gulp.dest(`${dirs.dist}/js/vendor`))
 );
 
 gulp.task('copy:.htaccess', () =>
