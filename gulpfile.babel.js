@@ -216,4 +216,11 @@ gulp.task('build', (done) => {
     done);
 });
 
+gulp.task('lintless', (done) => {
+  runSequence(
+    ['clean'],
+    'copy', 'modernizr',
+    done);
+});
+
 gulp.task('default', ['build']);
