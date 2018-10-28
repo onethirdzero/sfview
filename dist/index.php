@@ -18,22 +18,22 @@
   <link rel="stylesheet" href="css/vendor/photo-sphere-viewer.css">
   <link rel="stylesheet" href="css/vendor/bootstrap.css">
 
-  <script src="js/vendor/uevent.js"></script>
-  <script src="js/vendor/three.js"></script>
-  <script src="js/vendor/doT.js"></script>
-  <script src="js/vendor/D.js"></script>
-  <script src="js/vendor/photo-sphere-viewer.js"></script>
-  <script src="js/vendor/modernizr-3.6.0.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script> <!--Photosphere logic should go inside here...-->
+  <script type="text/javascript" src="js/vendor/uevent.js"></script>
+  <script type="text/javascript" src="js/vendor/three.js"></script>
+  <script type="text/javascript" src="js/vendor/doT.js"></script>
+  <script type="text/javascript" src="js/vendor/D.js"></script>
+  <script type="text/javascript" src="js/vendor/photo-sphere-viewer.js"></script>
+  <script type="text/javascript" src="js/vendor/modernizr-3.6.0.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script type="text/javascript" src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+  <script type="text/javascript" src="js/plugins.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
       window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
       ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
   </script>
-  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+  <script type="text/javascript" src="https://www.google-analytics.com/analytics.js" async defer></script>
 </head>
 
 <?php include("php/nav-bar.php") ?>
@@ -44,22 +44,13 @@
 <![endif]-->
 
 <div class="panorama" id="pan1" style="width: 100%; height: 100%;"></div>
-
-<!-- Photosphere Logic: This should be moved to an external js file..
-Currently experiencing problems with linking to Photo Sphere Viewer, 
-so we're putting this here for now (see main.js )-->
-<script type="text/javascript">
-  function setPanorama2(div_id, url){
-    let div = document.getElementById(div_id);
-    let params = {
-      container: div,
-      panorama: url,
-    };
-
-    return new PhotoSphereViewer(params);
-  }
+<script> 
+// Quick example of panorama and marker logic
+console.log("ok a")
+var pan = setPanorama("pan1", "img/stock_nature.jpg", "Academic Quadrangle")
+var info = "<h1>The Academic Quadrangle</h1><br> The Academic Quadrangle (AQ) is located in the center of the Simon Fraser University Campus and has five main floors. Like much of SFU, the AQ is built out of thick concrete walls and floors that are impermeable by wireless fields. Although there are many marked access zones, they do not necessarily stretch as far as indicated. Access points on the 3000 Level (2,3,29) that are within close proximity of computer labs in the east hallway have slower access rates. Most of the lecture halls do not have wireless access."
+addMarkerToPan(pan, 1, 0, 0, "Academic Quadrangle", info)
 </script>
-<script> setPanorama2("pan1", "img/stock_nature.jpg") </script> 
 
 </body>
 
