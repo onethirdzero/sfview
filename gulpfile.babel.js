@@ -76,6 +76,10 @@ gulp.task('clean', (done) => {
 });
 
 gulp.task('copy', [
+  'copy:d',
+  'copy:dot',
+  'copy:three',
+  'copy:uevent',
   'copy:bootstrap-css',
   'copy:bootstrap-js',
   'copy:three-js',
@@ -89,6 +93,31 @@ gulp.task('copy', [
   'copy:misc',
   'copy:normalize'
 ]);
+
+gulp.task('copy:d', () =>
+    gulp.src(['node_modules/d.js/lib/D.js'])
+        .pipe(gulp.dest(`${dirs.dist}/js/vendor`))
+);
+
+gulp.task('copy:dot', () =>
+    gulp.src(['node_modules/dot/doT.js'])
+        .pipe(gulp.dest(`${dirs.dist}/js/vendor`))
+);
+
+gulp.task('copy:three', () =>
+    gulp.src(['node_modules/three/build/three.js'])
+        .pipe(gulp.dest(`${dirs.dist}/js/vendor`))
+);
+
+gulp.task('copy:uevent', () =>
+    gulp.src(['node_modules/uevent/uevent.js'])
+        .pipe(gulp.dest(`${dirs.dist}/js/vendor`))
+);
+
+gulp.task('copy:uevent', () =>
+    gulp.src(['node_modules/uevent/uevent.js'])
+        .pipe(gulp.dest(`${dirs.dist}/js/vendor`))
+);
 
 gulp.task('copy:bootstrap-css', () =>
   gulp.src(['node_modules/bootswatch/dist/flatly/bootstrap.css'])

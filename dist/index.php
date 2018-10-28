@@ -18,13 +18,15 @@
   <link rel="stylesheet" href="css/vendor/photo-sphere-viewer.css">
   <link rel="stylesheet" href="css/vendor/bootstrap.css">
 
+  <script src="js/vendor/uevent.js"></script>
+  <script src="js/vendor/three.js"></script>
+  <script src="js/vendor/doT.js"></script>
+  <script src="js/vendor/D.js"></script>
+  <script src="js/vendor/photo-sphere-viewer.js"></script>
   <script src="js/vendor/modernizr-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
-  <script src="js/vendor/bootstrap.js"></script>
   <script src="js/plugins.js"></script>
-  <script src="js/vendor/three.min.js"></script>
-  <script src="js/vendor/photo-sphere-viewer.min.js"></script>
   <script src="js/main.js"></script> <!--Photosphere logic should go inside here...-->
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
@@ -57,9 +59,7 @@ so we're putting this here for now (see main.js )-->
     return new PhotoSphereViewer(params);
   }
 </script>
-
 <script> setPanorama2("pan1", "img/stock_nature.jpg") </script> 
-
 
 </body>
 
