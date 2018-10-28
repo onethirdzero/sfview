@@ -78,6 +78,7 @@ gulp.task('clean', (done) => {
 gulp.task('copy', [
   'copy:bootstrap-css',
   'copy:bootstrap-js',
+  'copy:three-js',
   'copy:photo-sphere-viewer-css',
   'copy:photo-sphere-viewer-js',
   'copy:.htaccess',
@@ -99,13 +100,18 @@ gulp.task('copy:bootstrap-js', () =>
     .pipe(gulp.dest(`${dirs.dist}/js/vendor`))
 );
 
+gulp.task('copy:three-js', () =>
+  gulp.src(['node_modules/three/build/three.min.js'])
+    .pipe(gulp.dest(`${dirs.dist}/js/vendor`))
+);
+
 gulp.task('copy:photo-sphere-viewer-css', () =>
   gulp.src(['node_modules/photo-sphere-viewer/dist/photo-sphere-viewer.css'])
     .pipe(gulp.dest(`${dirs.dist}/css/vendor`))
 );
 
 gulp.task('copy:photo-sphere-viewer-js', () =>
-  gulp.src(['node_modules/photo-sphere-viewer/dist/photo-sphere-viewer.js'])
+  gulp.src(['node_modules/photo-sphere-viewer/dist/photo-sphere-viewer.min.js'])
     .pipe(gulp.dest(`${dirs.dist}/js/vendor`))
 );
 
