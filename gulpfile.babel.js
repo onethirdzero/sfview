@@ -114,11 +114,6 @@ gulp.task('copy:uevent', () =>
         .pipe(gulp.dest(`${dirs.dist}/js/vendor`))
 );
 
-gulp.task('copy:uevent', () =>
-    gulp.src(['node_modules/uevent/uevent.js'])
-        .pipe(gulp.dest(`${dirs.dist}/js/vendor`))
-);
-
 gulp.task('copy:bootstrap-css', () =>
   gulp.src(['node_modules/bootswatch/dist/flatly/bootstrap.css'])
     .pipe(gulp.dest(`${dirs.dist}/css/vendor`))
@@ -140,7 +135,7 @@ gulp.task('copy:photo-sphere-viewer-css', () =>
 );
 
 gulp.task('copy:photo-sphere-viewer-js', () =>
-  gulp.src(['node_modules/photo-sphere-viewer/dist/photo-sphere-viewer.min.js'])
+  gulp.src(['node_modules/photo-sphere-viewer/dist/photo-sphere-viewer.js'])
     .pipe(gulp.dest(`${dirs.dist}/js/vendor`))
 );
 
