@@ -15,7 +15,6 @@ function setPanorama(div_id, url, locationName){
         'caption',
         'fullscreen'
         ]
-
     };
     return new PhotoSphereViewer(params);
 }
