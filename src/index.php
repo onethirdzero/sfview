@@ -51,7 +51,13 @@ var pan = setPanorama("pan1", "img/stock_nature.jpg", "Academic Quadrangle")
 var info = "<h1>The Academic Quadrangle</h1><br> The Academic Quadrangle (AQ) is located in the center of the Simon Fraser University Campus and has five main floors. Like much of SFU, the AQ is built out of thick concrete walls and floors that are impermeable by wireless fields. Although there are many marked access zones, they do not necessarily stretch as far as indicated. Access points on the 3000 Level (2,3,29) that are within close proximity of computer labs in the east hallway have slower access rates. Most of the lecture halls do not have wireless access."
 addMarkerToPan(pan, 1, 0, 0, "Academic Quadrangle", info)
 </script>
+
 <button id="voice-input-button">Speak a new location!</button>
+<br>
+<p>Alternatively, press 'Space' and then start speaking.<p>
+<p>Otherwise, tap/click here and then start speaking.</p>
+<p id="voice-input-result"><em>...diagnostic messages</em></p>
+
 <script type="text/javascript" src="js/voice.js"></script>
 
 </body>

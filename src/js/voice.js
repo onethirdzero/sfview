@@ -23,11 +23,35 @@ recognition.lang = 'en-US';
 recognition.interimResults = false; // We'll return final results instead.
 recognition.maxAlternatives = 1;
 
+var startRecognition = () => {
+    recognition.start();
+    console.log('Read to receive command.');
+}
+
+var diagnostic = document.querySelector('#voice-input-result');
+
+// Input via button.
 var button = document.querySelector('#voice-input-button');
 button.onclick = () => {
-    recognition.start(); // This is where the magic starts.
-    console.log('Ready to receive command.');
+    startRecognition();
 };
+
+// Input via tap/click.
+document.body.onclick = () => {
+    startRecognition();
+}
+
+// Input via space bar.
+document.onkeyup = (event) => {
+    // Graceful degradation: https://medium.com/@uistephen/keyboardevent-key-for-cross-browser-key-press-check-61dbad0a067a
+    if (event.defaultPrevented) {
+        return;
+    }
+    var key = event.key || event.keyCode;
+    if (key == ' ') {
+        startRecognition();
+    }
+}
 
 recognition.onresult = function (event) {
     // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object
@@ -41,9 +65,9 @@ recognition.onresult = function (event) {
 
     var last = event.results.length - 1;
     var location = event.results[last][0].transcript;
-    console.log(location);
     console.log('Result received: ' + location + '.');
     console.log('Confidence: ' + event.results[0][0].confidence);
+    diagnostic.textContent = 'Result received: ' + location + '.';
 }
 
 recognition.onspeechend = function () {
@@ -51,9 +75,9 @@ recognition.onspeechend = function () {
 }
 
 recognition.onnomatch = function (event) {
-    console.log('Location not recognized.');
+    diagnostic.textContent = 'Location not recognized.';
 }
 
 recognition.onerror = function (event) {
-    console.log('Error occurred in recognition: ' + event.error);
+    diagnostic.textContent = 'Error occurred in recognition: ' + event.error;
 }
