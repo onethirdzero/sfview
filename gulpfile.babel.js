@@ -220,7 +220,8 @@ gulp.task('lint:js', () =>
   gulp.src([
     'gulpfile.js',
     `${dirs.src}/js/*.js`,
-    `${dirs.test}/*.js`
+    `${dirs.test}/*.js`,
+    `!${dirs.src}/js/voice.js`
   ]).pipe(plugins().jscs())
     .pipe(plugins().eslint())
     .pipe(plugins().eslint.failOnError())
