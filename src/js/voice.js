@@ -7,7 +7,7 @@ var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
-var locations = ['aqua', 'azure', 'beige', 'bisque', 'black', 'blue', 'brown', 'chocolate', 'coral', 'crimson', 'cyan', 'fuchsia', 'ghostwhite', 'gold', 'goldenrod', 'gray', 'green', 'indigo', 'ivory', 'khaki', 'lavender', 'lime', 'linen', 'magenta', 'maroon', 'moccasin', 'navy', 'olive', 'orange', 'orchid', 'peru', 'pink', 'plum', 'purple', 'red', 'salmon', 'sienna', 'silver', 'snow', 'tan', 'teal', 'thistle', 'tomato', 'turquoise', 'violet', 'white', 'yellow'];
+var locations = ['library', 'AQ', 'academic quadrangle'];
 var grammar = '#JSGF V1.0; grammar locations; public <location> = ' + locations.join(' | ') + ' ;'
 
 // Instantiate SpeechRecognition object and list.
@@ -25,7 +25,7 @@ recognition.maxAlternatives = 1;
 
 var startRecognition = () => {
     recognition.start();
-    console.log('Read to receive command.');
+    console.log('Ready to receive command.');
 }
 
 var diagnostic = document.querySelector('#voice-input-result');
@@ -70,14 +70,14 @@ recognition.onresult = function (event) {
     diagnostic.textContent = 'Result received: ' + location + '.';
 }
 
-recognition.onspeechend = function () {
+recognition.onspeechend = () => {
     recognition.stop();
 }
 
-recognition.onnomatch = function (event) {
+recognition.onnomatch = () => {
     diagnostic.textContent = 'Location not recognized.';
 }
 
-recognition.onerror = function (event) {
+recognition.onerror = (event) => {
     diagnostic.textContent = 'Error occurred in recognition: ' + event.error;
 }
