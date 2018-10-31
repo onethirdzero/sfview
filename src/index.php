@@ -32,7 +32,7 @@
   <script>
       window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
       ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
-  </script>
+      </script>
   <script type="text/javascript" src="https://www.google-analytics.com/analytics.js" async defer></script>
 </head>
 
@@ -44,13 +44,15 @@
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 <![endif]-->
 
-<div class="panorama" id="pan1" style="width: 100%; height: 100%;"></div>
-<script> 
+<div class="panorama" id="pan1" style="width: 100%; height: 90%;"></div>
+<script>
 // Quick example of panorama and marker logic
 var pan = setPanorama("pan1", "img/stock_nature.jpg", "Academic Quadrangle")
 var info = "<h1>The Academic Quadrangle</h1><br> The Academic Quadrangle (AQ) is located in the center of the Simon Fraser University Campus and has five main floors. Like much of SFU, the AQ is built out of thick concrete walls and floors that are impermeable by wireless fields. Although there are many marked access zones, they do not necessarily stretch as far as indicated. Access points on the 3000 Level (2,3,29) that are within close proximity of computer labs in the east hallway have slower access rates. Most of the lecture halls do not have wireless access."
 addMarkerToPan(pan, 1, 0, 0, "Academic Quadrangle", info)
 </script>
+<button id="voice-input-button">Speak a new location!</button>
+<script type="text/javascript" src="js/voice.js"></script>
 
 </body>
 
