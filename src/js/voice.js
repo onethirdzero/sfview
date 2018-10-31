@@ -37,7 +37,8 @@ button.onclick = () => {
 };
 
 // Input via tap/click.
-document.body.onclick = () => {
+var area = document.querySelector('#voice-input-triggerable');
+area.onclick = () => {
     startRecognition();
 }
 

@@ -52,11 +52,13 @@ var info = "<h1>The Academic Quadrangle</h1><br> The Academic Quadrangle (AQ) is
 addMarkerToPan(pan, 1, 0, 0, "Academic Quadrangle", info)
 </script>
 
-<button id="voice-input-button">Speak a new location!</button>
-<br>
-<p>Alternatively, press 'Space' and then start speaking.<p>
-<p>Otherwise, tap/click here and then start speaking.</p>
-<p id="voice-input-result"><em>...diagnostic messages</em></p>
+<div id="voice-input-triggerable">
+  <button id="voice-input-button">Speak a new location!</button>
+  <br>
+  <p>Alternatively, press 'Space' and then start speaking.<p>
+  <p>Otherwise, tap/click here and then start speaking.</p>
+  <p id="voice-input-result"><em>...diagnostic messages</em></p>
+</div>
 
 <script type="text/javascript" src="js/voice.js"></script>
 
