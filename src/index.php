@@ -37,7 +37,6 @@
 </head>
 
 <?php include("php/nav-bar.php") ?>
-<a href="php/panoramaForm.php">panoramaForm.php</a>
 
 <body style="width: 100%; height: 100%;">
 <!--[if lte IE 9]>
