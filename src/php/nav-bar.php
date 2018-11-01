@@ -23,5 +23,5 @@
   </ul>
 
   <!-- When I add sessions I have to make this a if else with Log Out button and user recognition -->
-  <button class="btn btn-secondary my-2 mr-lg-0" type="submit">Log In</button>
+  <button class="btn btn-secondary my-2 mr-lg-0" onclick="location.href='/php/userForm.php'" type="submit">Log In</button>
 </nav>
