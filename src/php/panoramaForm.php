@@ -6,6 +6,24 @@
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/vendor/bootstrap.css">
+
+  <style>
+    .formDiv {
+      padding: 20px;
+      margin: 50px;
+      background-color: lightskyblue;
+      max-width: 750px;
+    }
+  </style>
+
+  <script type='text/javascript'>
+      function addMarkerField(){
+          var container = document.getElementById("markersDiv");
+          container.appendChild(document.createTextNode("Marker"));
+          container.appendChild(document.createElement("input"));
+          container.appendChild(document.createElement("br"));
+      }
+  </script>
 </head>
 
 <!-- ?php include("php/nav-bar.php") ? -->
@@ -32,14 +50,26 @@
   <button class="btn btn-secondary my-2 mr-lg-0" onclick="location.href='/php/userForm.php'" type="submit">Log In</button>
 </nav>
 
-<body>
-    <form id="add-panorama" action="panoramaUpload.php" method="POST" enctype="multipart/form-data">
-        Location Name: <input type="text" name="locationName">
-        <br>
-        Panorama: <input type="file" name="pan" id="pan">  
-        <br>
-        <input type="submit" value="Submit" id="submit-button">
-    </form>
+<body style="background-color: antiquewhite">
+
+    <div class="formDiv">
+      <form action="panoramaUpload.php" method="POST" enctype="multipart/form-data">
+        <fieldset>
+          <legend>New Panorama</legend>
+          <div class="form-group row">
+            <label class="col-lg-3">Location Name: </label>
+            <input class="col-lg-9" type="text" class="form-control" id="email">
+          </div>
+          <div class="form-group row">
+            <label class="col-lg-3" for="password">Panorama: </label>
+            <input class="col-lg-9" type="file" class="form-control" id="password">
+          </div>
+          <button type="button" onclick="addMarkerField()" class="btn btn-primary">Add Marker</button>
+          <div id="markersDiv">
+          </div>
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
 
     <!-- php logic (put in panoramaUpload.php): image is added to db, we retrieve image from db and create 
     a panorama. we show this panorama to the user and ask them to add markers -->
