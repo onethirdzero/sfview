@@ -8,15 +8,15 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <link rel="icon" href="favicon.ico">
-  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="apple-touch-icon" href="/icon.png">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="shortcut icon" href="/favicon.ico">
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/vendor/photo-sphere-viewer.css">
-  <link rel="stylesheet" href="css/vendor/bootstrap.css">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/vendor/photo-sphere-viewer.css">
+  <link rel="stylesheet" href="/css/vendor/bootstrap.css">
 
   <script type="text/javascript" src="js/vendor/uevent.js"></script>
   <script type="text/javascript" src="js/vendor/three.js"></script>
@@ -36,7 +36,29 @@
   <script type="text/javascript" src="https://www.google-analytics.com/analytics.js" async defer></script>
 </head>
 
-<?php include("php/nav-bar.php") ?>
+<!-- ?php include("php/nav-bar.php") ? -->
+<!-- php isn't acting like I'd expect on our server so for the check-in I've just put this here. -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">SFView</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="#">All Locations</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/php/panoramaForm.php">Upload</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Help</a>
+    </li>
+  </ul>
+  <button class="btn btn-secondary my-2 mr-lg-0" onclick="location.href='/php/userForm.php'" type="submit">Log In</button>
+</nav>
 
 <body style="width: 100%; height: 100%;">
 <!--[if lte IE 9]>
