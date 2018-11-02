@@ -42,3 +42,24 @@ function addMarkerToPan(pan, id, long, lat, tooltipStr, info)
         content: info
     });
 }
+
+
+// Function adds a marker to a panorama object.
+function addMarkerToPan2(pan, id, info)
+{
+    pan.addMarker({
+        id: id, // increment for each marker created
+        html: info,
+        longitude: 0, //position of the marker in spherical coordinates (radians)
+        latitude: 0,
+        width: 800,
+        height: 150,
+
+        style: {
+        color: 'maroon',
+        backgroundColor: 'rgba(0, 0, 0, 0.3)',
+        fontSize: '25px',
+        cursor: 'zoom-in'
+        },
+    });
+}

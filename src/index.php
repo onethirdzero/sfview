@@ -46,9 +46,9 @@
 <div class="panorama" id="pan1" style="width: 100%; height: 90%;"></div>
 <script>
 // Quick example of panorama and marker logic
-var pan = setPanorama("pan1", "img/stock_nature.jpg", "Academic Quadrangle")
-var info = "<h1>The Academic Quadrangle</h1><br> The Academic Quadrangle (AQ) is located in the center of the Simon Fraser University Campus and has five main floors. Like much of SFU, the AQ is built out of thick concrete walls and floors that are impermeable by wireless fields. Although there are many marked access zones, they do not necessarily stretch as far as indicated. Access points on the 3000 Level (2,3,29) that are within close proximity of computer labs in the east hallway have slower access rates. Most of the lecture halls do not have wireless access."
-addMarkerToPan(pan, 1, 0, 0, "Academic Quadrangle", info)
+var pan = setPanorama("pan1", "img/wideview.jpg", "SFU Burnaby Campus")
+var info = "<b>Welcome to SFView!</b> <br> To explore the SFU Burnaby Campus, press space!"
+addMarkerToPan2(pan, 1, info)
 </script>
 
 <div id="voice-input-triggerable">
