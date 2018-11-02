@@ -26,8 +26,31 @@
     </style>
 </head>
 
+<!-- ?php include("php/nav-bar.php") ? -->
+<!-- php isn't acting like I'd expect on our server so for the check-in I've just put this here. -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="/index.php">SFView</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="#">All Locations</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/php/panoramaForm.php">Upload</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Help</a>
+    </li>
+  </ul>
+  <button class="btn btn-secondary my-2 mr-lg-0" onclick="location.href='/php/userForm.php'" type="submit">Log In</button>
+</nav>
+
 <body style="background-color: antiquewhite">
-<h1> This page as a placeholder. I will be replacing it with a modal. (pop-up)</h1>
 
 <div class="formDiv">
     <form action="/php/usersInfo/Login.php">
@@ -49,7 +72,7 @@
 <div class="formDiv">
     <form action="/php/usersInfo/SignUp.php">
         <fieldset>
-            <legend>Log In Credentials</legend>
+            <legend>Registration</legend>
             <div class="form-group row">
                 <label class="col-lg-3" for="exampleInputPassword1">Email</label>
                 <input class="col-lg-9" type="text" class="form-control" id="email">
