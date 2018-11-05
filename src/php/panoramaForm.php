@@ -58,11 +58,11 @@
           <legend>New Panorama</legend>
           <div class="form-group row">
             <label class="col-lg-3">Location Name: </label>
-            <input class="col-lg-9" type="text" class="form-control" id="email">
+            <input class="col-lg-9" type="text" name = "location" class="form-control" id="location">
           </div>
           <div class="form-group row">
-            <label class="col-lg-3" for="password">Panorama: </label>
-            <input class="col-lg-9" type="file" class="form-control" id="password">
+            <label class="col-lg-3">Panorama: </label>
+            <input class="col-lg-9" type="file" name = "pan" class="form-control" id="pan">
           </div>
           <button type="button" onclick="addMarkerField()" class="btn btn-primary">Add Marker</button>
           <div id="markersDiv">
@@ -71,7 +71,7 @@
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
 
-    <!-- php logic (put in panoramaUpload.php): image is added to db, we retrieve image from db and create 
+    <!-- php logic (put in panoramaUpload.php): image is added to db, we retrieve image from db and create
     a panorama. we show this panorama to the user and ask them to add markers -->
 
     <!-- once this form has been submitted, user should be directed to markerForm.php -->

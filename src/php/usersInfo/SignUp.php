@@ -10,15 +10,23 @@
 require_once 'Users.php';
 
 try {
-    $connString = "mysql:host=localhost;dbname=bookcrm";
-    $user = DBUSER;
+    $connString = "mysql:host=localhost;dbname=sfview";
+    $user = DBNAME;
     $pass = DBPASS;
     $pdo = new PDO($connString,$user,$pass);
-    if (isset($_POST['SignUP'])) {
-        $username = $_POST['username'];
+    //if (isset($_POST['SignUP'])) {
+        $username = $_POST['email'];
         $password = $_POST['password'];
-        $New_User = new Users($username, $password);
-        if ($New_User->searchUsername($username)){
+        $usertype = $_POST['userType'];
+        if($usertype == "option1"){
+          $usertype = 0;
+        }else{
+          $usertype = 1;
+        }
+        echo "<p> start </p>";
+        $New_User = new Users($username, $password, $usertype);
+        echo "<p> start1? </p>";
+        if ($New_User->searchUsername($username, $pdo)){
             echo "<p> The Username already exists. </p>";
         }
         else if($New_User->storeDB($pdo)){
@@ -26,11 +34,9 @@ try {
         }else{
             echo "<p> Sign up failed. </p>";
         }
-    }
+    //}
 }
 catch (PDOException $e) {
     die( $e->getMessage() );
     echo "<p> Database error. </p>";
 }
-
-

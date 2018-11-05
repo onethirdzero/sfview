@@ -9,15 +9,15 @@
 require_once 'Users.php';
 
 try {
-    $connString = "mysql:host=localhost;dbname=bookcrm";
-    $user = DBUSER;
-    $pass = DBPASS;
+    $connString = "mysql:host=localhost;dbname=sfview";
+    $user = "xjc";
+    $pass = "jjzz1100";
     $pdo = new PDO($connString,$user,$pass);
-    if (isset($_POST['SignUP'])) {
-        $username = $_POST['username'];
+    //if (isset($_POST['SignUP'])) {
+        $username = $_POST['email'];
         $password = $_POST['password'];
         $New_User = new Users($username, $password);
-        if (!$New_User->searchUsername($username)){
+        if (!$New_User->searchUsername($username, $pdo)){
             echo "<p> The user does not exist. </p>";
         }
         else if($password != $New_User->password){
@@ -25,8 +25,9 @@ try {
         }else{
             $_SESSION['username'] = $username;
             $_SESSION['success'] = "You are now logged in";
+            echo "<p> Logged in! </p>";
         }
-    }
+    //}
 }
 catch (PDOException $e) {
     die( $e->getMessage() );

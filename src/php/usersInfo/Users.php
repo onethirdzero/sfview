@@ -32,13 +32,20 @@ class Users
         $this->username = $name;
         $this->password = $pass;
         $this->email = $mail;
-        $this->admin = $admin;
+        if($this->email == null){
+          $this->email = $this->username;
+        }
+        if($admin != 0){
+          $this->admin = 1;
+        }else{
+          $this->admin = 0;
+        }
     }
     public function storeDB($pdo){
-        $sql = "INSERT INTO users
+        $sql = "INSERT INTO user(username, password, admin, email)
                 VALUES(:username, :password, :admin, :email)";
         $this->pdo = $pdo;
-        if($this->searchUsername($this->username)){
+        if($this->searchUsername($this->username, $pdo)){
             return false;
         }
         $stmt = $pdo->prepare($sql);
@@ -56,8 +63,9 @@ class Users
     public function getFromDB(){
         return false;
     }
-    public function searchUsername($name){
-        $sql = "SELECT * FROM users WHERE username = :username";
+    public function searchUsername($name, $pdo){
+        $this->pdo = $pdo;
+        $sql = "SELECT * FROM user WHERE username = :username";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(":username", $name);
         $stmt->execute();
@@ -68,7 +76,7 @@ class Users
         $this->userID = $row['id'];
         $this->username = $row['username'];
         $this->password = $row['password'];
-        $this->password = $row['admin'];
+        $this->admin = $row['admin'];
         $this->email = $row['email'];
         return true;
     }
