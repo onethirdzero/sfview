@@ -1,7 +1,8 @@
-1. Please create a folder whose name is "panoramas" in the root ($_SERVER['DOCUMENT_ROOT'])
+1, Please create a folder whose name is "panoramas" in the root ($_SERVER['DOCUMENT_ROOT'])
 
-2. Please create these tbales in mysql before you test or run this website:
+2, Please create these tbales in mysql before you test or run this website:
 
+```MYSQL
 CREATE TABLE `pan` (
 `id` int(11) NOT NULL AUTO_INCREMENT,
 `username` varchar(255) NOT NULL,
@@ -10,7 +11,9 @@ CREATE TABLE `pan` (
 PRIMARY KEY (`id`),
 FOREIGN KEY (`username`) REFERENCES `user`(`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8
+```
 
+```MYSQL
 CREATE TABLE `marker` (
 `id` int(11) NOT NULL AUTO_INCREMENT,
 `longitude` varchar(255),
@@ -20,7 +23,9 @@ CREATE TABLE `marker` (
 `loaction` varchar(255) NOT NULL,
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8
+```
 
+```MYSQL
 CREATE TABLE `user` (
 `id` int(11) NOT NULL AUTO_INCREMENT,
 `username` varchar(255) NOT NULL UNIQUE,
@@ -29,6 +34,7 @@ CREATE TABLE `user` (
 `email` varchar(255) DEFAULT NULL,
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8
+```
 
-3. Please edit the files panoramaUpload.php, usersInfo/login.php and usersInfo/signup.php:
-change all DBPASS and DBNAME to the database's username and password
+3, Please edit the files **panoramaUpload.php**, **usersInfo/login.php** and **usersInfo/signup.php**:
+change all `DBPASS` and `DBNAME` to the database's username and password
