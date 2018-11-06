@@ -1,6 +1,9 @@
-1, Please create a folder whose name is "panoramas" in the root ($_SERVER['DOCUMENT_ROOT'])
+# Help for testing and runing files in this page
 
-2, Please create these tbales in mysql before you test or run this website:
+
+## 1, Please create a folder whose name is "**_panoramas_**" in the root ($_SERVER['DOCUMENT_ROOT'])
+
+## 2, Please create these tbales in mysql before you test or run this website:
 
 ```MYSQL
 CREATE TABLE `pan` (
@@ -36,5 +39,5 @@ PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8
 ```
 
-3, Please edit the files **panoramaUpload.php**, **usersInfo/login.php** and **usersInfo/signup.php**:
+## 3, Please edit the files **panoramaUpload.php**, **usersInfo/login.php** and **usersInfo/signup.php**:
 change all `DBPASS` and `DBNAME` to the database's username and password
