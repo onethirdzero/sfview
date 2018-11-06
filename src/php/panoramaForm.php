@@ -38,7 +38,7 @@
       <a class="nav-link" href="#">All Locations</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/php/panoramaForm.php">Upload</a>
+      <a class="nav-link" href="./panoramaForm.php">Upload</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">About</a>
@@ -47,7 +47,7 @@
       <a class="nav-link" href="#">Help</a>
     </li>
   </ul>
-  <button class="btn btn-secondary my-2 mr-lg-0" onclick="location.href='/php/userForm.php'" type="submit">Log In</button>
+  <button class="btn btn-secondary my-2 mr-lg-0" onclick="location.href='./userForm.php'" type="submit">Log In</button>
 </nav>
 
 <body style="background-color: antiquewhite">
@@ -58,11 +58,11 @@
           <legend>New Panorama</legend>
           <div class="form-group row">
             <label class="col-lg-3">Location Name: </label>
-            <input class="col-lg-9" type="text" name = "location" class="form-control" id="location">
+            <input class="col-lg-9" type="text" class="form-control" id="email">
           </div>
           <div class="form-group row">
-            <label class="col-lg-3">Panorama: </label>
-            <input class="col-lg-9" type="file" name = "pan" class="form-control" id="pan">
+            <label class="col-lg-3" for="password">Panorama: </label>
+            <input class="col-lg-9" type="file" name="pan" id="pan">
           </div>
           <button type="button" onclick="addMarkerField()" class="btn btn-primary">Add Marker</button>
           <div id="markersDiv">

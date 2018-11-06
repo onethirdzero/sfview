@@ -38,7 +38,7 @@
       <a class="nav-link" href="#">All Locations</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/php/panoramaForm.php">Upload</a>
+      <a class="nav-link" href="./panoramaForm.php">Upload</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">About</a>
@@ -47,13 +47,13 @@
       <a class="nav-link" href="#">Help</a>
     </li>
   </ul>
-  <button class="btn btn-secondary my-2 mr-lg-0" onclick="location.href='/php/userForm.php'" type="submit">Log In</button>
+  <button class="btn btn-secondary my-2 mr-lg-0" onclick="location.href='./userForm.php'" type="submit">Log In</button>
 </nav>
 
 <body style="background-color: antiquewhite">
 
 <div class="formDiv">
-    <form action="/src/php/usersInfo/Login.php" method="post">
+    <form action="./usersInfo/Login.php" method="post">
         <fieldset>
             <legend>Log In Credentials</legend>
             <div class="form-group row">
@@ -70,7 +70,7 @@
 </div>
 
 <div class="formDiv">
-  <form action="/src/php/usersInfo/SignUp.php" method="post">
+  <form action="./usersInfo/SignUp.php" method="post">
       <fieldset>
           <legend>Registration</legend>
           <div class="form-group row">

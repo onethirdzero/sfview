@@ -35,10 +35,11 @@ CREATE TABLE `marker` (
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8
 
- */
 
- $target_dir = "uploads/";
- $target_file = $target_dir . basename($_FILES["pan"]["name"]);
+ */
+ session_start();
+ $target_dir = "/panoramas/";
+ $target_file = $_SERVER['DOCUMENT_ROOT'].$target_dir.basename($_FILES["pan"]["name"]);
  $uploadOk = 1;
  // Check if image file is a actual image or fake image
  //if(isset($_POST["submit"])) {
@@ -55,6 +56,7 @@ PRIMARY KEY (`id`)
    //      $uploadOk = 0;
    //  }
      // Check file size
+     echo $_SESSION["username"];
      if ($_FILES["pan"]["size"] > 500000) {
          echo "Sorry, your file is too large.";
          $uploadOk = 0;
@@ -65,8 +67,9 @@ PRIMARY KEY (`id`)
      } else {
          if (move_uploaded_file($_FILES["pan"]["tmp_name"], $target_file)) {
              echo "The file ". basename( $_FILES["pan"]["name"]). " has been uploaded.";
+
              $connString = "mysql:host=localhost;dbname=bookcrm";
-             $user = DBUSER;
+             $user = DBNAME;
              $pass = DBPASS;
              $pdo = new PDO($connString,$user,$pass);
              $username = $_SESSION['username'];
@@ -76,7 +79,7 @@ PRIMARY KEY (`id`)
              $stmt = $pdo->prepare($sql);
              $stmt->bindValue(":username", $username);
              $stmt->bindValue(":location", $location);
-             $stmt->bindValue(":dir", $target_file);
+             $stmt->bindValue(":dir", $target_file); //dir is path of the file
              $stmt->execute();
          } else {
              echo "Sorry, there was an error uploading your file.";

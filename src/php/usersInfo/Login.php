@@ -7,11 +7,12 @@
  */
 
 require_once 'Users.php';
+session_start();
 
 try {
     $connString = "mysql:host=localhost;dbname=sfview";
-    $user = "xjc";
-    $pass = "jjzz1100";
+    $user = DBNAME;
+    $pass = DBPASS;
     $pdo = new PDO($connString,$user,$pass);
     //if (isset($_POST['SignUP'])) {
         $username = $_POST['email'];
