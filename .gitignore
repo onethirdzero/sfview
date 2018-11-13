@@ -1,6 +1,9 @@
 archive
-node_modules
+vendor/
+node_modules/
 .DS_Store
 dist/
-vendor/
+.env
+public/css/
+public/js/
 
