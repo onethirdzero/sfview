@@ -6,4 +6,4 @@ dist/
 .env
 public/css/
 public/js/
-
+sfview-*.json
