@@ -1,3 +1,5 @@
+'use strict';
+
 // https://medium.com/@bryanjenningz/how-to-record-and-play-audio-in-javascript-faa1b2b3e49b
 var button = document.querySelector('#voice-input-button');
 
@@ -5,7 +7,6 @@ button.addEventListener('click', () => {
   // In dev, it's fine to serve over localhost.
   // In prod, we'll need to serve over HTTPS to use the Web Audio API.
   // https://stackoverflow.com/questions/34165614/navigator-mediadevices-getusermedia-is-not-working-and-neither-does-webkitgetuse
-  console.log('foo');
   navigator.mediaDevices.getUserMedia({ audio: true })
     .then(stream => {
       // https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder/MediaRecorder#Syntax
@@ -30,8 +31,8 @@ button.addEventListener('click', () => {
         var reader = new window.FileReader();
         reader.readAsDataURL(audioBlob);
         reader.onloadend = () => {
-          dataUrl = reader.result;
-          base64Encoded = dataUrl.split(',')[1]
+          var dataUrl = reader.result;
+          var base64Encoded = dataUrl.split(',')[1]
 
           // Send it off to api/speech endpoint.
           $.post('http://localhost:8000/api/speech', {
