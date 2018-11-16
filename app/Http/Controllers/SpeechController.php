@@ -15,6 +15,7 @@ class SpeechController extends Controller
     {
         # Instantiates a client.
         # https://github.com/googleapis/google-cloud-php/blob/master/AUTHENTICATION.md#client-authentication
+        // This shouldn't be necessary in prod. Maybe check an env variable?
         $speech = new SpeechClient([
             'languageCode' => 'en-US',
             'keyFile' => json_decode(file_get_contents('../sfview-220601-aa213eb940f9.json'), true),
@@ -28,22 +29,23 @@ class SpeechController extends Controller
 
         # Temporarily save the file locally.
         # https://stackoverflow.com/questions/24748942/php-base64-decode-with-audio
-        file_put_contents(storage_path('app/track.webm'), $decodedAudio);
+        $trackName = 'track' . date('_Ymd_His');
+        file_put_contents(storage_path('app/' . $trackName . '.webm'), $decodedAudio);
 
         # Convert from WebM audio format to WAV.
         FFMpeg::fromDisk('local')
-            ->open('track.webm')
+            ->open($trackName . '.webm')
             ->export()
             ->inFormat(new \FFMpeg\Format\Audio\Wav)
-            ->save('track.wav');
+            ->save($trackName . '.wav');
 
         # Recognize speech in the audio file.
         $results = $speech->recognize(
-            fopen(storage_path('app/track.wav'), 'r')
+            fopen(storage_path('app/' . $trackName . '.wav'), 'r')
         );
 
         # Deletes the file.
-        unlink(storage_path('app/track.wav'));
+        unlink(storage_path('app/' . $trackName . '.wav'));
 
         Debugbar::info($results);
 
