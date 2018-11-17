@@ -6,7 +6,10 @@
 
 {{-- Fill in our content. --}}
 @section('content')
-{{-- Sample. --}}
 <div class="panorama" id="viewer" style="width: 100%; height: 90%;"></div>
-<p>Press space and speak a new location!</p>
+
+<div>
+    <p>Press space to speak a new location!</p>
+    <p id="voice-input-result" style="font-style: italic;">...diagnostic messages</p>
+</div>
 @endsection

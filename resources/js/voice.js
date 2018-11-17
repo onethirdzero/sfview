@@ -1,6 +1,8 @@
 // https://medium.com/@bryanjenningz/how-to-record-and-play-audio-in-javascript-faa1b2b3e49b
 'use strict';
 
+var diagnostic = document.querySelector('#voice-input-result');
+
 // Trigger speech recognition by pressing the space bar.
 document.onkeyup = (event) => {
   // Graceful degradation: https://medium.com/@uistephen/keyboardevent-key-for-cross-browser-key-press-check-61dbad0a067a
@@ -9,6 +11,7 @@ document.onkeyup = (event) => {
   }
   var key = event.key || event.keyCode;
   if (key == ' ') {
+    diagnostic.textContent = 'Listening..';
     startRecognition();
   }
 }
@@ -36,6 +39,7 @@ var startRecognition = () => {
         // The mimeType here might also refer to container format, but it's not explicit.
         const audioBlob = new Blob(audioChunks, {type: 'audio/webm'});
         console.log('Audio recorded: ' + audioBlob);
+        diagnostic.textContent = 'Audio recorded. Processing..';
 
         // https://stackoverflow.com/questions/18650168/convert-blob-to-base64
         var reader = new window.FileReader();
@@ -52,6 +56,7 @@ var startRecognition = () => {
             'json'
           ).done((response) => {
             console.log('Response: ', response);
+            diagnostic.textContent = 'Response: ' + response + '.';
           });
         }
       });
