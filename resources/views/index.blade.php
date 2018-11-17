@@ -6,5 +6,7 @@
 
 {{-- Fill in our content. --}}
 @section('content')
-<p>Hello!</p>
+{{-- Sample. --}}
+<div class="panorama" id="viewer" style="width: 100%; height: 90%;"></div>
+<p>Press space and speak a new location!</p>
 @endsection

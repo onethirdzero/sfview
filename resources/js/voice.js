@@ -1,12 +1,22 @@
+// https://medium.com/@bryanjenningz/how-to-record-and-play-audio-in-javascript-faa1b2b3e49b
 'use strict';
 
-// https://medium.com/@bryanjenningz/how-to-record-and-play-audio-in-javascript-faa1b2b3e49b
-var button = document.querySelector('#voice-input-button');
+// Trigger speech recognition by pressing the space bar.
+document.onkeyup = (event) => {
+  // Graceful degradation: https://medium.com/@uistephen/keyboardevent-key-for-cross-browser-key-press-check-61dbad0a067a
+  if (event.defaultPrevented) {
+    return;
+  }
+  var key = event.key || event.keyCode;
+  if (key == ' ') {
+    startRecognition();
+  }
+}
 
-button.addEventListener('click', () => {
-  // In dev, it's fine to serve over localhost.
-  // In prod, we'll need to serve over HTTPS to use the Web Audio API.
-  // https://stackoverflow.com/questions/34165614/navigator-mediadevices-getusermedia-is-not-working-and-neither-does-webkitgetuse
+var startRecognition = () => {
+// In dev, it's fine to serve over localhost.
+// In prod, we'll need to serve over HTTPS to use the Web Audio API.
+// https://stackoverflow.com/questions/34165614/navigator-mediadevices-getusermedia-is-not-working-and-neither-does-webkitgetuse
   navigator.mediaDevices.getUserMedia({ audio: true })
     .then(stream => {
       // https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder/MediaRecorder#Syntax
@@ -49,5 +59,5 @@ button.addEventListener('click', () => {
       setTimeout(() => {
         mediaRecorder.stop();
       }, 3000);
-    });
-});
+  });
+}

@@ -6,7 +6,7 @@
  */
 
 require('./bootstrap');
-require('./voice.js');
+require('./voice');
 
 // window.Vue = require('vue');
 
