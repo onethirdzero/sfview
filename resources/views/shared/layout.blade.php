@@ -6,9 +6,29 @@
         <title>SFView - @yield('title')</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        {{-- https://laracasts.com/discuss/channels/general-discussion/laravel-5-posting-javascript-to-controller-wont-work --}}
+
         {{-- Turns out that we pass the CSRF token like this. --}}
+        {{-- https://laracasts.com/discuss/channels/general-discussion/laravel-5-posting-javascript-to-controller-wont-work --}}
         <meta name="csrf-token" content="{!! Session::token() !!}">
+
+        {{-- We use 'defer' to delay the execution of scripts until the
+        DOM is ready for interaction. Also improves load times because
+        downloads are now in parallel. --}}
+        {{-- https://flaviocopes.com/javascript-async-defer/ --}}
+
+        {{-- Photo Sphere Viewer dependencies from a CDN. --}}
+        <script defer type="text/javascript" src="https://cdn.rawgit.com/malko/D.js/v0.7.5/lib/D.min.js"></script>
+        <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/uevent@1.0.0/uevent.min.js"></script>
+        <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dot/1.1.2/doT.min.js"></script>
+        <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/98/three.min.js"></script>
+
+        {{-- Photo Sphere Viewer assets from a CDN.--}}
+        {{-- https://cdn.jsdelivr.net/npm/photo-sphere-viewer/dist/ --}}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer/dist/photo-sphere-viewer.min.css">
+        <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer/dist/photo-sphere-viewer.js"></script>
+
+        {{-- And we include compiled assets like this. --}}
+        <script defer src="{{ asset('/js/app.js') }}"></script>
     </head>
     <body>
         {{-- Nav sub-view goes here. --}}
@@ -24,8 +44,5 @@
         <div class="container">
             @yield('content')
         </div>
-
-        {{-- And we include compiled assets like this. --}}
-        <script src="{{ asset('/js/app.js') }}"></script> --}}
     </body>
 </html>

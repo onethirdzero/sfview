@@ -7,6 +7,7 @@
 
 require('./bootstrap');
 require('./voice');
+require('./photo-sphere-viewer');
 
 // window.Vue = require('vue');
 
