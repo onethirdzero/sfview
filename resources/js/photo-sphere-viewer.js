@@ -3,10 +3,7 @@
 // Function sets panorama from url into the div with div_id.
 // locationName will be displayed in the center of the bottom navigation bar.
 function setPanorama(div_id, url, locationName) {
-    // TODO: Load this script only after the DOM is ready, otherwise we're not
-    // able to grab the div we need.
     let div = document.getElementById(div_id);
-    console.log(div);
     let params = {
         container: div,
         panorama: url,
@@ -66,6 +63,6 @@ function addMarkerToPan2(pan, id, info) {
 }
 
 // Quick example of panorama and marker logic
-var pan = setPanorama("viewer", "./convo.jpg", "SFU Burnaby Campus")
-var info = "<b>Welcome to SFView!</b> <br> To explore the SFU Burnaby Campus, press space!"
-addMarkerToPan2(pan, 1, info)
+var pan = setPanorama("viewer", "img/wideview.jpg", "SFU Burnaby Campus")
+// var info = "<b>Welcome to SFView!</b> <br> To explore the SFU Burnaby Campus, press space!"
+// addMarkerToPan2(pan, 1, info)
