@@ -30,9 +30,7 @@
 
                     <div class="field">
                         <label class="label" for="password">{{ __('Password') }}</label>
-
                         <div class="control">
-                            {{-- <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required> --}}
                             <input class="input {{ $errors->has('password') ? is-danger : '' }}" id="password" type="password" name="password" required>
 
                             @if ($errors->has('password'))
