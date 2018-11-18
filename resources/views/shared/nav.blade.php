@@ -47,13 +47,13 @@
               </a>
             @endif
             <a class="navbar-item button is-light" href="{{ route('login') }}">
-              {{ __('Log In') }}
+              {{ __('Login') }}
             </a>
           @else
             <a class="navbar-item button is-light" href="{{ route('logout') }}"
               onclick="event.preventDefault();
               document.getElementById('logout-form').submit();">
-              {{ __('Log Out') }}
+              {{ __('Logout') }}
             </a>
 
             {{-- Hidden logout form. --}}
