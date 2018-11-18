@@ -49,6 +49,7 @@ var startRecognition = () => {
           var base64Encoded = dataUrl.split(',')[1]
 
           // Send it off to api/speech endpoint.
+          // TODO: Use Fetch API so we don't have to rely on jQuery.
           $.post('http://localhost:8000/api/speech', {
             '_token': $('meta[name=csrf-token]').attr('content'),
             'audio': base64Encoded,

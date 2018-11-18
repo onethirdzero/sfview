@@ -4,7 +4,7 @@
 {{-- Fill in our title. --}}
 @section('title', 'Index')
 
-{{-- Include script that we need. --}}
+{{-- Include scripts that we need. --}}
 @section('scripts')
     @include('scripts')
 @endsection
