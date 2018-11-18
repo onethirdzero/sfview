@@ -10,5 +10,20 @@
   <a>Upload</a>
   <a>About</a>
   <a>Help</a>
-  <button>Log In</button>
+  @guest
+    <a href="{{ route('login') }}">{{ __('Login') }}</a>
+    @if (Route::has('register'))
+        <a href="{{ route('register') }}">{{ __('Register') }}</a>
+    @endif
+  @else
+    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+          document.getElementById('logout-form').submit();">
+        {{ __('Logout') }}
+    </a>
+
+    {{-- Hidden logout form. --}}
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+      @csrf
+    </form>
+  @endguest
 </nav>
