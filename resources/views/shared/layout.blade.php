@@ -14,7 +14,7 @@
         {{-- Styles go here. --}}
         @include('shared.styles')
         {{-- Scripts go here. --}}
-        @include('shared.scripts')
+        @section('scripts')
     </head>
     <body>
         {{-- Nav sub-view goes here. --}}
@@ -27,8 +27,6 @@
         <![endif]-->
 
         {{-- Content section goes here. --}}
-        <div class="container">
-            @yield('content')
-        </div>
+        @yield('content')
     </body>
 </html>

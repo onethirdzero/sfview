@@ -2,7 +2,7 @@
 {{-- https://laravel.com/docs/5.7/blade#including-sub-views --}}
 {{-- TODO: Style this with a responsive CSS framework. --}}
 <nav>
-  <a href="#">SFView</a>
+<a href="{{ url('/') }}">SFView</a>
   <a role="button">
     <span>
   </a>

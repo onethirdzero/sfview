@@ -4,6 +4,11 @@
 {{-- Fill in our title. --}}
 @section('title', 'Index')
 
+{{-- Include script that we need. --}}
+@section('scripts')
+    @include('scripts')
+@endsection
+
 {{-- Fill in our content. --}}
 @section('content')
 <div class="panorama" id="viewer" style="width: 100%; height: 90%;"></div>
