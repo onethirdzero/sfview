@@ -27,7 +27,7 @@
 
                             @if ($errors->has('email'))
                                 <span class="is-danger" role="alert">
-                                    <strong>{{ $errors->first('email') }}</strong>
+                                    {{ $errors->first('email') }}
                                 </span>
                             @endif
                         </div>
