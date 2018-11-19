@@ -21,21 +21,22 @@
   <div class="navbar-menu" id="navbarMenu">
     <div class="navbar-start">
 
-      <a class="navbar-item button is-light" href="{{ route('locations') }}">
+      <a class="navbar-item" href="{{ route('locations') }}">
         {{ __('All Locations') }}
       </a>
 
-      <a class="navbar-item">
-        Upload
+      <a class="navbar-item" href="{{ route('upload') }}">
+        {{ __('Upload') }}
       </a>
 
-      <a class="navbar-item">
-        About
+      <a class="navbar-item" href="{{ route('about') }}">
+        {{ __('About') }}
       </a>
 
-      <a class="navbar-item">
-        Help
+      <a class="navbar-item" href="{{ route('help') }}">
+        {{ __('Help') }}
       </a>
+
     </div>
 
     <div class="navbar-end">

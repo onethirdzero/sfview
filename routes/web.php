@@ -21,3 +21,6 @@ Auth::routes();
 // conveniently generating URLs for that route.
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/locations', 'HomeController@locations')->name('locations');
+Route::get('/upload', 'HomeController@upload')->name('upload');
+Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/help', 'HomeController@help')->name('help');

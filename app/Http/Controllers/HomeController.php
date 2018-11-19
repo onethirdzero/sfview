@@ -31,4 +31,19 @@ class HomeController extends Controller
     {
         return view('locations');
     }
+
+    public function upload()
+    {
+        return view('upload');
+    }
+
+    public function about()
+    {
+        return view('about');
+    }
+
+    public function help()
+    {
+        return view('help');
+    }
 }
