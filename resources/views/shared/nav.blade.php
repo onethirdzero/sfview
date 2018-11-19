@@ -20,8 +20,9 @@
 
   <div class="navbar-menu" id="navbarMenu">
     <div class="navbar-start">
-      <a class="navbar-item">
-        All Locations
+
+      <a class="navbar-item button is-light" href="{{ route('locations') }}">
+        {{ __('All Locations') }}
       </a>
 
       <a class="navbar-item">

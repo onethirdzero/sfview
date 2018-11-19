@@ -20,3 +20,4 @@ Auth::routes();
 // name() creates a named route, which can be used for
 // conveniently generating URLs for that route.
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/locations', 'HomeController@locations')->name('locations');
