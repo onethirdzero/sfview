@@ -88,7 +88,16 @@ PRIMARY KEY (`id`)
                    echo "This location's photosphere already exists <br>";
                    echo '<a href="../panoramaForm.php">Return</a>';
                }else{
-                 if (move_uploaded_file($_FILES["pan"]["tmp_name"], $target_file)) {
+                 $D=md5(time().'daxin');
+                 $filetype=strrchr($_FILES['pan']['name'],".");
+                 $newname=$D.$filetype;
+                 $target_file = $_SERVER['DOCUMENT_ROOT'].$target_dir.$newname;
+                 if (file_exists($target_file))
+                 {
+                   echo "cannot upload it now because there is another file with the same name";
+                   echo '<a href="../panoramaForm.php">Return</a>';
+                 }else {
+                   if (move_uploaded_file($_FILES["pan"]["tmp_name"], $target_file)) {
                      $sql = "INSERT INTO locations(username, location, filename, dirction)
                      VALUES(:username, :location, :filename, :dir)";
                      $stmt = $pdo->prepare($sql);
@@ -117,6 +126,7 @@ PRIMARY KEY (`id`)
                      echo "Sorry, there was an error uploading your file. <br>";
                      echo '<a href="../panoramaForm.php">Return</a>';
                    }
+                 }
                }
 
 
@@ -140,5 +150,5 @@ PRIMARY KEY (`id`)
                echo '<a href="../panoramaForm.php">Return</a>';
              }
          }
-     }
+     //}
  //}

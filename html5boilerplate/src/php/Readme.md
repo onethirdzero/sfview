@@ -1,7 +1,7 @@
 # Help for testing and runing files in this page
 
 
-## 1, Please create a folder whose name is "**_panoramas_**" in the root ($_SERVER['DOCUMENT_ROOT'])
+## 1, Please create a folder whose name is "**_panoramas_**" in the root of the server ($_SERVER['DOCUMENT_ROOT'])
 
 ## 2, Please create these tbales in mysql before you test or run this website:
 

@@ -35,7 +35,7 @@
   </button>
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" href="#">All Locations</a>
+      <a class="nav-link" href="./panoramaList.php">All Locations</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="./searchPanorama.php">Search</a>

@@ -11,9 +11,9 @@ logic: upload image into db. user should then be redirected to markerForm.php
  * Date: 2018-10-30
  * Time: 12:06 AM
  */
-require_once '../usersInfo/Users.php';
+ require_once '../usersInfo/Users.php';
  session_start();
-      if (isset($_POST['location'])){
+      if (isset($_GET['location'])){
                $connString = "mysql:host=localhost;dbname=sfview";
                $user = DBNAME;
                $pass = DBPASS;
@@ -21,7 +21,7 @@ require_once '../usersInfo/Users.php';
 
                $sql = "SELECT * FROM locations WHERE location = :location";
                $stmt = $pdo->prepare($sql);
-               $stmt->bindValue(":location", $_POST['location']);
+               $stmt->bindValue(":location", $_GET['location']);
                $stmt->execute();
                $row = $stmt->fetch();
                if(!$row['id']){
