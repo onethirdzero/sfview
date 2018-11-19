@@ -11,7 +11,7 @@
 
 {{-- Fill in our content. --}}
 @section('content')
-<div class="panorama" id="viewer" style="width: 100%; height: 90%;"></div>
+<div class="panorama" id="viewer" style="width: 100vw; height: 90vh;"></div>
 
 <div>
     <p>Press space to speak a new location!</p>
