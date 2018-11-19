@@ -6,10 +6,11 @@
 ## 2, Please create these tbales in mysql before you test or run this website:
 
 ```MYSQL
-CREATE TABLE `pan` (
+CREATE TABLE `locations` (
 `id` int(11) NOT NULL AUTO_INCREMENT,
 `username` varchar(255) NOT NULL,
 `location` varchar(255) NOT NULL,
+`filename` varchar(255) NOT NULL,
 `dirction` varchar(255) NOT NULL UNIQUE,
 PRIMARY KEY (`id`),
 FOREIGN KEY (`username`) REFERENCES `user`(`username`)
@@ -19,11 +20,11 @@ FOREIGN KEY (`username`) REFERENCES `user`(`username`)
 ```MYSQL
 CREATE TABLE `marker` (
 `id` int(11) NOT NULL AUTO_INCREMENT,
+`name` varchar(255) NOT NULL,
+`location` varchar(255) NOT NULL,
 `longitude` varchar(255),
 `latitude` varchar(255),
-`name` varchar(255) NOT NULL,
 `info` varchar(255),
-`loaction` varchar(255) NOT NULL,
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8
 ```

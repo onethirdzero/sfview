@@ -12,7 +12,10 @@
       <a class="nav-link" href="#">All Locations</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="./panoramaForm.php">Upload</a>
+      <a class="nav-link" href="./searchPanorama.php">Search</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/php/panoramaForm.php">Upload</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">About</a>
@@ -23,5 +26,5 @@
   </ul>
 
   <!-- When I add sessions I have to make this a if else with Log Out button and user recognition -->
-  <button class="btn btn-secondary my-2 mr-lg-0" onclick="location.href='./userForm.php'" type="submit">Log In</button>
+  <button class="btn btn-secondary my-2 mr-lg-0" onclick="location.href='src/php/userForm.php'" type="submit">Log In</button>
 </nav>

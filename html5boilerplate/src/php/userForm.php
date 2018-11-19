@@ -38,6 +38,9 @@
       <a class="nav-link" href="#">All Locations</a>
     </li>
     <li class="nav-item">
+      <a class="nav-link" href="./searchPanorama.php">Search</a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" href="./panoramaForm.php">Upload</a>
     </li>
     <li class="nav-item">

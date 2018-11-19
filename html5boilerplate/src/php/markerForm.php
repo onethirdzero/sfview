@@ -5,7 +5,7 @@
     <!-- use bootswatch-->
 </head>
 
-<!-- This form should come up after panoramaForm has been submitted 
+<!-- This form should come up after panoramaForm has been submitted
 and panorama has been added to db -->
 <body>
     <form id="add-markers" method="POST">
@@ -19,6 +19,6 @@ and panorama has been added to db -->
     </form>
 
     <!-- Inputs should be used to call addMarkerToPan() -->
-    
+
 </body>
 </html>

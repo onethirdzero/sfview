@@ -63,6 +63,15 @@ class Users
     public function getFromDB(){
         return false;
     }
+
+    /*
+    if ($sth->rowCount() > 0) {
+    ... got results ...
+    } else {
+        echo 'nothing';
+    }
+    */
+
     public function searchUsername($name, $pdo){
         $this->pdo = $pdo;
         $sql = "SELECT * FROM user WHERE username = :username";

@@ -23,20 +23,22 @@ try {
         }else{
           $usertype = 1;
         }
-        echo "<p> start </p>";
         $New_User = new Users($username, $password, $usertype);
-        echo "<p> start1? </p>";
         if ($New_User->searchUsername($username, $pdo)){
             echo "<p> The Username already exists. </p>";
+            echo '<a href="../userForm.php">Return</a>';
         }
         else if($New_User->storeDB($pdo)){
             echo "<p> Sign up Successfully! </p>";
+            echo '<a href="../userForm.php">Return</a>';
         }else{
             echo "<p> Sign up failed. </p>";
+            echo '<a href="../userForm.php">Return</a>';
         }
     //}
 }
 catch (PDOException $e) {
     die( $e->getMessage() );
     echo "<p> Database error. </p>";
+    echo '<a href="../userForm.php">Return</a>';
 }
