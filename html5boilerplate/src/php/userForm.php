@@ -33,6 +33,14 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  <?php
+  session_start();
+    if (isset($_SESSION["username"])){
+      $user = 1;
+      $name = $_SESSION["username"];
+      echo "<p>Welcome! ".$name."</P>";
+    }
+  ?>
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
       <a class="nav-link" href="./panoramaList.php">All Locations</a>
@@ -55,6 +63,9 @@
 
 <body style="background-color: antiquewhite">
 
+<?php
+  if ($user != 1){
+?>
 <div class="formDiv">
     <form action="./usersInfo/Login.php" method="post">
         <fieldset>
@@ -71,6 +82,9 @@
         <button type="submit" class="btn btn-primary">Log In</button>
     </form>
 </div>
+<?php
+}
+?>
 
 <div class="formDiv">
   <form action="./usersInfo/SignUp.php" method="post">
