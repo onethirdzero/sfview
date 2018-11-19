@@ -40,5 +40,5 @@ PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8
 ```
 
-## 3, Please edit the files **panoramaUpload.php**, **usersInfo/login.php** and **usersInfo/signup.php**:
+## 3, Please edit **panoramaList.php**, and all the files under **usersInfo**, **panoramaInfo** floders:
 change all `DBPASS` and `DBNAME` to the database's username and password
