@@ -103,7 +103,7 @@ PRIMARY KEY (`id`)
                      $stmt = $pdo->prepare($sql);
                      $stmt->bindValue(":username", $username);
                      $stmt->bindValue(":location", $location);
-                     $stmt->bindValue(":filename", $_FILES["pan"]["name"]);
+                     $stmt->bindValue(":filename", $newname);
                      $stmt->bindValue(":dir", $target_file); //dir is path of the file
                      $stmt->execute();
 
