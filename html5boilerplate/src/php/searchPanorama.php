@@ -16,6 +16,16 @@
     }
   </style>
 
+  <script type='text/javascript'>
+    function validateSearch() {
+      var x = document.forms["searchForm"]["location"].value;
+      if (x == "") {
+          alert("location name must be filled out");
+          return false;
+      }
+    }
+  </script>
+
 </head>
 
 <!-- ?php include("php/nav-bar.php") ? -->
@@ -48,7 +58,7 @@
 <body style="background-color: antiquewhite">
 
     <div class="formDiv">
-      <form action="./panoramaInfo/panoramaSearch.php" method="get" enctype="multipart/form-data">
+      <form action="./panoramaInfo/panoramaSearch.php" method="get" name = "searchForm" onsubmit="return validateSearch()" enctype="multipart/form-data">
         <fieldset>
           <legend>Search</legend>
           <div class="form-group row">

@@ -28,6 +28,18 @@
           container.appendChild(document.createElement("br"));
           document.getElementById('number').value = number;
       }
+      function validateUpload() {
+        var x = document.forms["UploadFrom"]["location"].value;
+        var y = document.forms["UploadFrom"]["pan"].value;
+        if (x == "") {
+            alert("location name must be filled out");
+            return false;
+        }
+        if (y == "") {
+            alert("You must upload the file!");
+            return false;
+        }
+      }
   </script>
 </head>
 
@@ -61,7 +73,7 @@
 <body style="background-color: antiquewhite">
 
     <div class="formDiv">
-      <form action="./panoramaInfo/panoramaUpload.php" method="POST" enctype="multipart/form-data">
+      <form action="./panoramaInfo/panoramaUpload.php" method="post" name = "UploadFrom" onsubmit="return validateUpload()" enctype="multipart/form-data">
         <fieldset>
           <legend>New Panorama</legend>
           <div class="form-group row">

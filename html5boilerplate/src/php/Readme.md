@@ -21,7 +21,7 @@ FOREIGN KEY (`username`) REFERENCES `user`(`username`)
 CREATE TABLE `marker` (
 `id` int(11) NOT NULL AUTO_INCREMENT,
 `name` varchar(255) NOT NULL,
-`location` varchar(255) NOT NULL,
+`location` varchar(255),
 `longitude` varchar(255),
 `latitude` varchar(255),
 `info` varchar(255),
