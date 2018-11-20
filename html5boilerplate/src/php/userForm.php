@@ -24,6 +24,38 @@
             max-width: 750px;
         }
     </style>
+
+    <script type='text/javascript'>
+      function validateLogin() {
+        var x = document.forms["loginFrom"]["email"].value;
+        var y = document.forms["loginFrom"]["password"].value;
+        if (x == "") {
+            alert("Email must be filled out");
+            return false;
+        }
+        if (y == "") {
+            alert("Password must be filled out");
+            return false;
+        }
+      }
+      function validateSignup() {
+        var x = document.forms["SignUpFrom"]["email"].value;
+        var y = document.forms["SignUpFrom"]["password"].value;
+        var y1 = document.forms["SignUpFrom"]["password_confirm"].value;
+        if (x == "") {
+            alert("Email must be filled out");
+            return false;
+        }
+        if (y == "") {
+            alert("Password must be filled out");
+            return false;
+        }
+        if (y != y1) {
+            alert("Password and Confirm Password are different!");
+            return false;
+        }
+      }
+    </script>
 </head>
 
 <!-- ?php include("php/nav-bar.php") ? -->
@@ -35,10 +67,18 @@
   </button>
   <?php
   session_start();
+  $user = 0;
     if (isset($_SESSION["username"])){
-      $user = 1;
-      $name = $_SESSION["username"];
-      echo "<p>Welcome! ".$name."</P>";
+      if (isset($_GET["log"])){
+        if ($_GET["log"] == "logout"){
+          $_SESSION = array();
+          session_destroy();
+        }
+      }else{
+        $user = 1;
+        $name = $_SESSION["username"];
+        echo '<p>Welcome! '.$name.' <a href="./userForm.php?log=logout"> Sign out</a> </P>';
+      }
     }
   ?>
   <ul class="navbar-nav mr-auto">
@@ -67,16 +107,16 @@
   if ($user != 1){
 ?>
 <div class="formDiv">
-    <form action="./usersInfo/Login.php" method="post">
+    <form action="./usersInfo/Login.php" name = "loginFrom" onsubmit="return validateLogin()" method="post">
         <fieldset>
             <legend>Log In Credentials</legend>
             <div class="form-group row">
                 <label class="col-lg-3" for="email">Email</label>
-                <input class="col-lg-9" type="text" name = "email" class="form-control" id="email">
+                <input class="col-lg-9" type="text" name = "email" class="form-control" id="loginemail">
             </div>
             <div class="form-group row">
                 <label class="col-lg-3" for="password">Password</label>
-                <input class="col-lg-9" type="password" name = "password" class="form-control" id="password">
+                <input class="col-lg-9" type="password" name = "password" class="form-control" id="loginpassword">
             </div>
         </fieldset>
         <button type="submit" class="btn btn-primary">Log In</button>
@@ -87,7 +127,7 @@
 ?>
 
 <div class="formDiv">
-  <form action="./usersInfo/SignUp.php" method="post">
+  <form action="./usersInfo/SignUp.php" name = "SignUpFrom" onsubmit="return validateSignup()" method="post">
       <fieldset>
           <legend>Registration</legend>
           <div class="form-group row">
@@ -100,7 +140,7 @@
           </div>
           <div class="form-group row">
               <label class="col-lg-3" for="password_confirm">Confirm Password</label>
-              <input class="col-lg-9" type="password" class="form-control" id="password_confirm">
+              <input class="col-lg-9" type="password" class="form-control" name="password_confirm" id="password_confirm">
           </div>
           <fieldset class="form-group">
               <legend>User Type</legend>

@@ -5,7 +5,22 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
+  <?php
+  session_start();
+  $user = 0;
+    if (isset($_SESSION["username"])){
+      if (isset($_GET["log"])){
+        if ($_GET["log"] == "logout"){
+          $_SESSION = array();
+          session_destroy();
+        }
+      }else{
+        $user = 1;
+        $name = $_SESSION["username"];
+        echo '<p>Welcome! '.$name.' <a href="./nav-bar.php?log=logout"> Sign out</a> </P>';
+      }
+    }
+  ?>
   <!-- Not many these links currently go anywhere, and none of them are set to active if you're there -->
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">

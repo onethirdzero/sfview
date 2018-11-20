@@ -29,7 +29,7 @@ FOREIGN KEY (`username`) REFERENCES `user`(`username`)
 CREATE TABLE `marker` (
 `id` int(11) NOT NULL AUTO_INCREMENT,
 `name` varchar(255) NOT NULL,
-`location` varchar(255) NOT NULL,
+`location` varchar(255),
 `longitude` varchar(255),
 `latitude` varchar(255),
 `info` varchar(255),
@@ -60,7 +60,6 @@ PRIMARY KEY (`id`)
      // Check file size
   */
 
-     echo $_SESSION["username"]." uploaded a file. <br>";
      if ($_FILES["pan"]["size"] > 5000000) {
          echo "Sorry, your file is too large.<br>";
          $uploadOk = 0;
@@ -115,9 +114,11 @@ PRIMARY KEY (`id`)
                          VALUES(:name, :location)";
                          $bstmt = $pdo->prepare($sql);
                          $marker = $_POST['Marker'];
-                         $bstmt->bindValue(":name", $marker[$i]);
-                         $bstmt->bindValue(":location", $location);
-                         $bstmt->execute();
+                         if ($marker != ""){
+                           $bstmt->bindValue(":name", $marker[$i]);
+                           $bstmt->bindValue(":location", $location);
+                           $bstmt->execute();
+                         }
                        }
                      }
                      echo "The file ". basename( $_FILES["pan"]["name"]). " has been uploaded.";
