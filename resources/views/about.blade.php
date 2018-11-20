@@ -1,3 +1,17 @@
+{{-- https://laravel.com/docs/5.7/blade#extending-a-layout --}}
+@extends('shared.layout')
+
+{{-- Fill in our title. --}}
+@section('title', 'Index')
+
+{{-- Include scripts that we need. --}}
+@section('scripts')
+    @include('scripts')
+@endsection
+
+{{-- Fill in our content. --}}
+@section('content')
+
 <html>
 <head>
 
@@ -23,3 +37,4 @@ The app is being developed as a university assignment for SFU's CMPT470 class.
 </body>
 
 </html>
+@endsection

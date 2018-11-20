@@ -1,3 +1,16 @@
+{{-- https://laravel.com/docs/5.7/blade#extending-a-layout --}}
+@extends('shared.layout')
+
+{{-- Fill in our title. --}}
+@section('title', 'Index')
+
+{{-- Include scripts that we need. --}}
+@section('scripts')
+    @include('scripts')
+@endsection
+
+{{-- Fill in our content. --}}
+@section('content')
 
 <html>
 <body style="background-color: antiquewhite">
@@ -10,12 +23,12 @@
 
       
         <?php
-        /*
-          define("DBNAME", "sfview");
+        
+          define("DBUSER", "sfview_user");
           define("DBPASS", "pass");
           $connString = "mysql:host=localhost;dbname=sfview";
 
-          $user = DBNAME;
+          $user = DBUSER;
           $pass = DBPASS;
           $pdo = new PDO($connString,$user,$pass);
 
@@ -51,7 +64,7 @@
           }
 
           //test:
-*/
+
          ?>
       </div>
     </fieldset>
@@ -66,3 +79,5 @@ a panorama. we show this panorama to the user and ask them to add markers -->
 
 
 </html>
+
+@endsection
