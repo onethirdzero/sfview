@@ -64,5 +64,7 @@ function addMarkerToPan2(pan, id, info) {
 
 // Quick example of panorama and marker logic
 var pan = setPanorama("viewer", "img/wideview.jpg", "SFU Burnaby Campus")
-// var info = "<b>Welcome to SFView!</b> <br> To explore the SFU Burnaby Campus, press space!"
-// addMarkerToPan2(pan, 1, info)
+var info = "<b>Welcome to SFView!</b> <br> To explore the SFU Burnaby Campus, press space!"
+//var info = "<div><p>Press space to speak a new location!</p><p id='voice-input-result' style='font-style: italic;'>...diagnostic messages</p></div>"
+
+addMarkerToPan2(pan, 1, info)
