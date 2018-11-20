@@ -15,6 +15,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- used to be panoramaForm -->
     <title>Add Panorama</title>
     <!-- use bootswatch-->
   <link rel="stylesheet" href="/css/normalize.css">
@@ -42,17 +43,27 @@
           container.appendChild(document.createElement("br"));
           document.getElementById('number').value = number;
       }
+      function validateUpload() {
+        var x = document.forms["UploadFrom"]["location"].value;
+        var y = document.forms["UploadFrom"]["pan"].value;
+        if (x == "") {
+            alert("location name must be filled out");
+            return false;
+        }
+        if (y == "") {
+            alert("You must upload the file!");
+            return false;
+        }
+
+        // TODO: we should also check the type of file
+      }
   </script>
 </head>
 
-<!-- ?php include("php/nav-bar.php") ? -->
-
-
 <body style="background-color: antiquewhite">
 
-
     <div class="formDiv">
-      <form action="./panoramaInfo/panoramaUpload.php" method="POST" enctype="multipart/form-data">
+        <form action="./panoramaInfo/panoramaUpload.php" method="post" name = "UploadFrom" onsubmit="return validateUpload()" enctype="multipart/form-data">
         <fieldset>
           <legend>New Panorama</legend>
           <div class="form-group row">
@@ -70,11 +81,6 @@
         </fieldset>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
-
-    <!-- php logic (put in panoramaUpload.php): image is added to db, we retrieve image from db and create
-    a panorama. we show this panorama to the user and ask them to add markers -->
-
-    <!-- once this form has been submitted, user should be directed to markerForm.php -->
 
 </body>
 

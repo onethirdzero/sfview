@@ -13,6 +13,24 @@
 @section('content')
 
 <html>
+
+<?php
+session_start();
+$user = 0;
+if (isset($_SESSION["username"])){
+    if (isset($_GET["log"])){
+    if ($_GET["log"] == "logout"){
+        $_SESSION = array();
+        session_destroy();
+    }
+    }else{
+    $user = 1;
+    $name = $_SESSION["username"];
+    echo '<p>Welcome! '.$name.' <a href="./panoramaList.php?log=logout"> Sign out</a> </P>';
+    }
+}
+?>
+
 <body style="background-color: antiquewhite">
 
 <div class="formDiv">
