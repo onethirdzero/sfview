@@ -15,7 +15,9 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="./css/app.css">
+<style>
+<?php include "./css/app.css";?>
+</style>
 </head>
 
 <?php
@@ -36,16 +38,17 @@ if (isset($_SESSION["username"])){
 ?>
 
 <body>
+    <div style="padding:30px">
     <h1>All locations in Database</h1>
     <table class="table">
 
           <th>
-              <td>Location</td>
-              <td>Acceptible Phrases</td>
+              <td><b>Location</b></td>
+              <td><b>Acceptible Phrases</b></td>
           </th>
-      
+
         <?php
-        
+
           define("DBUSER", "sfview_user");
           define("DBPASS", "pass");
           $connString = "mysql:host=localhost;dbname=sfview";
@@ -96,6 +99,8 @@ if (isset($_SESSION["username"])){
 
          ?>
     </table>
+
+    </div>
 
 <!-- php logic (put in panoramaUpload.php): image is added to db, we retrieve image from db and create
 a panorama. we show this panorama to the user and ask them to add markers -->

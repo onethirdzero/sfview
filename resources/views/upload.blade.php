@@ -9,6 +9,13 @@
     @include('scripts')
 @endsection
 
+
+<head>
+    <style>
+        <?php include "./css/app.css";?>
+    </style>
+</head>
+
 {{-- Fill in our content. --}}
 @section('content')
 
