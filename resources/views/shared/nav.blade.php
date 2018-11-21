@@ -52,6 +52,14 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
+          <div>
+          <?php
+          if (!is_null(Auth::user()))
+          {
+              echo "<p style='padding-right: 25px; margin-top: 5px; font-size: 18px'>".Auth::user()->name."</p>";
+          }
+          ?>
+          </div>
           @guest
             @if (Route::has('register'))
               <a style='background-color: #A6192E' class="navbar-item button is-primary" href="{{ route('register') }}">

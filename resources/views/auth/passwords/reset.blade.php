@@ -3,6 +3,8 @@
 @section('title', 'Password Reset')
 
 @section('content')
+<link rel="stylesheet" href="../css/app.css">
+
 <section class="section">
     <div class="container is-fluid">
         <div class="columns is-centered">
@@ -13,8 +15,7 @@
     </div>
 </section>
 
-
-<h3 class="title">{{ __('Reset Password') }}</h3>
+<h3 class="title" style='color: #A6192E'>{{ __('Reset Password') }}</h3>
 
 <form method="POST" action="{{ route('password.update') }}">
     @csrf

@@ -3,11 +3,13 @@
 @section('title', 'Send Password Reset Link')
 
 @section('content')
+<link rel="stylesheet" href="../css/app.css">
+
 <section class="section">
     <div class="container is-fluid">
         <div class="columns is-centered">
             <div class="column is-half">
-                <h3 class="title">{{ __('Reset Password') }}</h3>
+                <h3 class="title" style='color: #A6192E'>{{ __('Reset Password') }}</h3>
 
                 @if (session('status'))
                     <div class="container">
@@ -35,7 +37,7 @@
 
                     <div class="field is-grouped">
                         <div class="control">
-                            <button class="button is-link" type="submit">
+                            <button class="button is-link" type="submit" style='background-color: #A6192E'>
                                 {{ __('Send Password Reset Link') }}
                             </button>
                         </div>

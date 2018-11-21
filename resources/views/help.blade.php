@@ -14,12 +14,7 @@
 
     <html>
     <head>
-
-        <style>
-            <?php include "./css/app.css";?>
-
-        </style>
-
+        <link rel="stylesheet" href="./css/app.css">
     </head>
 
     <body>

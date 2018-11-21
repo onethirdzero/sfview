@@ -3,6 +3,8 @@
 @section('title', 'Login')
 
 @section('content')
+<link rel="stylesheet" href="./css/app.css">
+
 <section class="section">
     <div class="container is-fluid">
         <div class="columns is-centered">

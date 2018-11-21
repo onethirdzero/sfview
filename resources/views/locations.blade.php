@@ -14,6 +14,10 @@
 
 <html>
 
+<head>
+  <link rel="stylesheet" href="./css/app.css">
+</head>
+
 <?php
 session_start();
 $user = 0;
