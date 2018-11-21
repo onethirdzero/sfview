@@ -12,55 +12,62 @@
 {{-- Fill in our content. --}}
 @section('content')
 
-<!DOCTYPE html>
-<html>
-<head>
-    <!-- used to be panoramaForm -->
-    <title>Add Panorama</title>
-    <!-- use bootswatch-->
-  <link rel="stylesheet" href="/css/normalize.css">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/vendor/bootstrap.css">
-  <link rel="stylesheet" href="./css/app.css">
+    <section class="section">
+        <div class="container is-fluid">
+            <div class="columns is-centered">
+                <div class="column is-half">
+                    <h3 class="title">{{ __('Upload Panorama') }}</h3>
 
-  <style>
-    .formDiv {
-      padding: 20px;
-      margin: 50px;
-      background-color: lightskyblue;
-      max-width: 750px;
-    }
-  </style>
+                    <form method="POST" action="{{ route('upload') }}">
+                        @csrf
 
-  <script type='text/javascript'>
-      var number = 0;
-      function addMarkerField(){
-          number++;
-          var container = document.getElementById("markersDiv");
-          var newMarker = document.createElement("input");
-          newMarker.name = "Marker[]";
-          container.appendChild(document.createTextNode("Marker"));
-          container.appendChild(newMarker);
-          container.appendChild(document.createElement("br"));
-          document.getElementById('number').value = number;
-      }
-      function validateUpload() {
-        var x = document.forms["UploadFrom"]["location"].value;
-        var y = document.forms["UploadFrom"]["pan"].value;
-        if (x == "") {
-            alert("location name must be filled out");
-            return false;
-        }
-        if (y == "") {
-            alert("You must upload the file!");
-            return false;
-        }
+                        <div class="field">
+                            <label class="label" for="location">{{ __('Location Name') }}</label>
+                            <div class="control">
+                                <input class="input {{ $errors->has('location') ? 'is-danger' : '' }}
+                                        id="location" type="text" name="location" value="{{ old('location') }}"
+                                required autofocus>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label" for="filename">{{ __('File') }}</label>
+                            <div class="control">
+                                <input class="input {{ $errors->has('filename') ? 'is-danger' : '' }}
+                                        id="filename" type="file" name="filename" value="{{ old('filename') }}"
+                                required autofocus>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label" for="diction">{{ __('Phrases (comma delimited)') }}</label>
+                            <div class="control">
+                                <input class="input {{ $errors->has('diction') ? 'is-danger' : '' }}
+                                        id="diction" type="text" name="diction" value="{{ old('diction') }}"
+                                required autofocus>
+                            </div>
+                        </div>
 
-        // TODO: we should also check the type of file
-      }
-  </script>
+                        <div class="field is-grouped">
+                            <div class="control">
+                                <button class="button is-primary" type="submit">
+                                    {{ __('Upload') }}
+                                </button>
+                                <button class="button is-link" type="submit">
+                                    {{ __('Cancel') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 </head>
 
+
+</html>
+@endsection
+
+<!--
 <body style="background-color: antiquewhite">
 
     <div class="formDiv">
@@ -85,6 +92,29 @@
 
 </body>
 
-
-</html>
-@endsection
+  <script type='text/javascript'>
+      var number = 0;
+      function addMarkerField(){
+          number++;
+          var container = document.getElementById("markersDiv");
+          var newMarker = document.createElement("input");
+          newMarker.name = "Marker[]";
+          container.appendChild(document.createTextNode("Marker"));
+          container.appendChild(newMarker);
+          container.appendChild(document.createElement("br"));
+          document.getElementById('number').value = number;
+      }
+      function validateUpload() {
+        var x = document.forms["UploadFrom"]["location"].value;
+        var y = document.forms["UploadFrom"]["pan"].value;
+        if (x == "") {
+            alert("location name must be filled out");
+            return false;
+        }
+        if (y == "") {
+            alert("You must upload the file!");
+            return false;
+        }
+      }
+  </script>
+-->
