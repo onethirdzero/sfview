@@ -44,7 +44,7 @@
                     <div class="field">
                         <label class="label" for="password">{{ __('Password') }}</label>
                         <div class="control">
-                            <input class="input {{ $errors->has('password') ? is-danger : '' }}" id="password" type="password" name="password" required>
+                            <input class="input {{ $errors->has('password') ? 'is-danger' : '' }}" id="password" type="password" name="password" required>
 
                             @if ($errors->has('password'))
                                 <span class="help is-danger" role="alert">
