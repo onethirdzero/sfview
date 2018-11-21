@@ -15,7 +15,9 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="./css/app.css">
+<style>
+<?php include "./css/app.css";?>
+</style>
 </head>
 
 <?php
@@ -35,17 +37,18 @@ if (isset($_SESSION["username"])){
 }
 ?>
 
-<body style="background-color: antiquewhite">
+<body>
+    <div style="padding:30px">
+    <h1>All locations in Database</h1>
+    <table class="table">
 
-<div class="formDiv">
-  <form action="./panoramaInfo/panoramaUpload.php" method="POST" enctype="multipart/form-data">
-    <fieldset>
-      <legend>All Panoramas</legend>
-      <div class="form-group row">
+          <th>
+              <td><b>Location</b></td>
+              <td><b>Acceptible Phrases</b></td>
+          </th>
 
-      
         <?php
-        
+
           define("DBUSER", "sfview_user");
           define("DBPASS", "pass");
           $connString = "mysql:host=localhost;dbname=sfview";
@@ -75,7 +78,14 @@ if (isset($_SESSION["username"])){
             while ($next = $stmt->fetch())
             {
               $current = $next;
+              echo '<tr>';
+              echo '<td>';
               echo '<a href="./panoramaInfo/panoramaSearch.php?location='.$next["location"].'">'.$next["location"].'</a> <br>';
+              echo '<td>';
+                echo '<td>';
+                echo $next["diction"];
+                echo '<td>';
+              echo '</tr>';
             }
             echo "<br>";
             echo "<a href='./panoramaList.php?page=1'>".'|<'."</a> "; // first page
@@ -88,9 +98,9 @@ if (isset($_SESSION["username"])){
           //test:
 
          ?>
-      </div>
-    </fieldset>
-  </div>
+    </table>
+
+    </div>
 
 <!-- php logic (put in panoramaUpload.php): image is added to db, we retrieve image from db and create
 a panorama. we show this panorama to the user and ask them to add markers -->
