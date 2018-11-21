@@ -15,7 +15,6 @@
         <?php include "./css/app.css";?>
     </style>
 </head>
-
 {{-- Fill in our content. --}}
 @section('content')
 
@@ -41,6 +40,7 @@
                             <div class="control">
                                 <input class="input {{ $errors->has('filename') ? 'is-danger' : '' }}
                                         id="filename" type="file" name="filename" value="{{ old('filename') }}"
+                                        style="height:40px;"
                                 required autofocus>
                             </div>
                         </div>
