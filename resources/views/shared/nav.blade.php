@@ -3,14 +3,11 @@
   background-color: black;
 }
 
-.navbar-item{
-  color: lightgrey;
-}
 </style>
 
 {{-- This is content of the nav sub-view. --}}
 {{-- https://laravel.com/docs/5.7/blade#including-sub-views --}}
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar is-black" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="{{ url('/') }}">
       <strong>SFView</strong>

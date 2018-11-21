@@ -12,11 +12,13 @@
 {{-- Fill in our content. --}}
 @section('content')
 
+<link rel="stylesheet" href="./css/app.css">
+
     <section class="section">
         <div class="container is-fluid">
             <div class="columns is-centered">
                 <div class="column is-half">
-                    <h3 class="title">{{ __('Upload Panorama') }}</h3>
+                    <h3 class="title" style='color: #A6192E'>{{ __('Upload Panorama') }}</h3>
 
                     <form method="POST" action="{{ route('upload') }}">
                         @csrf
@@ -48,10 +50,10 @@
 
                         <div class="field is-grouped">
                             <div class="control">
-                                <button class="button is-primary" type="submit">
+                                <button class="button is-primary" type="submit" style='background-color: #A6192E'>
                                     {{ __('Upload') }}
                                 </button>
-                                <button class="button is-link" type="submit">
+                                <button class="button is-link" type="submit" style='color: black; background-color: lightgrey'>
                                     {{ __('Cancel') }}
                                 </button>
                             </div>
