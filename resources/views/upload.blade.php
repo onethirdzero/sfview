@@ -11,9 +11,7 @@
 
 
 <head>
-    <style>
-        <?php include "./css/app.css";?>
-    </style>
+        <link rel="stylesheet" href="./css/app.css">
 </head>
 {{-- Fill in our content. --}}
 @section('content')
@@ -26,8 +24,8 @@
                 <div class="column is-half">
                     <h3 class="title" style='color: #A6192E'>{{ __('Upload Panorama') }}</h3>
 
-                    <form method="POST" action="/php/panoramaUpload.php">
-                        @csrf
+                    <form method="POST" action="/php/panoramaUpload.php" enctype="multipart/form-data" >
+                
 
                         <div class="field">
                             <label class="label" for="location">{{ __('Location Name') }}</label>
@@ -41,7 +39,7 @@
                             <label class="label" for="pan">{{ __('Panorama File') }}</label>
                             <div class="control">
                                 <input class="input {{ $errors->has('file') ? 'is-danger' : '' }}
-                                        id="pan" type="file" enctype="multipart/form-data" name="pan" value="{{ old('pan') }}"
+                                        id="pan" type="file"name="pan" value='pan'
                                         style="height:40px;"
                                 required autofocus>
                             </div>

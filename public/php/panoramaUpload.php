@@ -38,8 +38,13 @@ PRIMARY KEY (`id`)
 
  */
  session_start();
+ echo "start";
+ //$files = multiple($_FILES);
+//print_r($files);
+ echo $_FILES['pan']['name'];
  $target_dir = "/panoramas/";
- $target_file = $_SERVER['DOCUMENT_ROOT'].$target_dir.basename($_FILES["pan"]["name"]);
+ $target_file = $_SERVER['DOCUMENT_ROOT'].$target_dir.basename($_FILES['pan']['name']);
+ echo $target_file;
  $uploadOk = 1;
 
  /*
