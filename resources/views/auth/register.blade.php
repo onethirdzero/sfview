@@ -7,7 +7,7 @@
     <div class="container is-fluid">
         <div class="columns is-centered">
             <div class="column is-half">
-                <h3 class="title">{{ __('Register') }}</h3>
+                <h3 style='color: #A6192E' class="title">{{ __('Register') }}</h3>
 
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
@@ -63,7 +63,7 @@
 
                     <div class="field is-grouped">
                         <div class="control">
-                            <button class="button is-link" type="submit">
+                            <button style='background-color: #A6192E' class="button is-link" type="submit">
                                 {{ __('Register') }}
                             </button>
                         </div>

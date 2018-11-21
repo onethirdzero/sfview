@@ -1,3 +1,13 @@
+<style>
+.navbar{
+  background-color: black;
+}
+
+.navbar-item{
+  color: lightgrey;
+}
+</style>
+
 {{-- This is content of the nav sub-view. --}}
 {{-- https://laravel.com/docs/5.7/blade#including-sub-views --}}
 <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -44,7 +54,7 @@
         <div class="buttons">
           @guest
             @if (Route::has('register'))
-              <a class="navbar-item button is-primary" href="{{ route('register') }}">
+              <a style='background-color: #A6192E' class="navbar-item button is-primary" href="{{ route('register') }}">
                 <strong>{{ __('Sign Up') }}</strong>
               </a>
             @endif
