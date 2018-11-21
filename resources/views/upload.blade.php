@@ -26,7 +26,7 @@
                 <div class="column is-half">
                     <h3 class="title" style='color: #A6192E'>{{ __('Upload Panorama') }}</h3>
 
-                    <form method="POST" action="{{ route('upload') }}">
+                    <form method="POST" action="/php/panoramaUpload.php">
                         @csrf
 
                         <div class="field">
@@ -38,10 +38,10 @@
                             </div>
                         </div>
                         <div class="field">
-                            <label class="label" for="filename">{{ __('File') }}</label>
+                            <label class="label" for="pan">{{ __('Panorama File') }}</label>
                             <div class="control">
-                                <input class="input {{ $errors->has('filename') ? 'is-danger' : '' }}
-                                        id="filename" type="file" name="filename" value="{{ old('filename') }}"
+                                <input class="input {{ $errors->has('file') ? 'is-danger' : '' }}
+                                        id="pan" type="file" enctype="multipart/form-data" name="pan" value="{{ old('pan') }}"
                                         style="height:40px;"
                                 required autofocus>
                             </div>
@@ -77,27 +77,6 @@
 @endsection
 
 <!--
-<body style="background-color: antiquewhite">
-
-    <div class="formDiv">
-        <form action="./panoramaInfo/panoramaUpload.php" method="post" name = "UploadFrom" onsubmit="return validateUpload()" enctype="multipart/form-data">
-        <fieldset>
-          <legend>New Panorama</legend>
-          <div class="form-group row">
-            <label class="col-lg-3">Location Name: </label>
-            <input class="col-lg-9" type="text" class="form-control" name = 'location' id="location">
-          </div>
-          <div class="form-group row">
-            <label class="col-lg-3" for="password">Panorama: </label>
-            <input class="col-lg-9" type="file" name="pan" id="pan">
-          </div>
-          <button type="button" onclick="addMarkerField()" class="btn btn-primary">Add Marker</button>
-          <div id="markersDiv">
-            <input id = "number" class="number" type="hidden" name="number" value=0>
-          </div>
-        </fieldset>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
 
 </body>
 
