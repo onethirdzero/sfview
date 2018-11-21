@@ -72,7 +72,7 @@ PRIMARY KEY (`id`)
       }
       if ($uploadOk == 0) {
           echo "Sorry, your file was not uploaded.<br>";
-          echo '<a href="../panoramaForm.php">Return</a>';
+          echo '<a href="../">Return</a>';
           // if everything is ok, try to upload file
       } else {
           if (1) { // used to be session logic but we lost sessions (sorry gavin), might be able to do something with $auth here
@@ -103,10 +103,9 @@ PRIMARY KEY (`id`)
                       echo '<a href="/">Return</a>';
                   } else {
                       if (move_uploaded_file($_FILES["pan"]["tmp_name"], $target_file)) {
-                          $sql = "INSERT INTO locations(username, location, filename, dirction)
-                     VALUES(:username, :location, :filename, :dir)";
+                          $sql = "INSERT INTO locations(location, filename, dirction)
+                     VALUES(:location, :filename, :dir)";
                           $stmt = $pdo->prepare($sql);
-                          $stmt->bindValue(":username", $username);
                           $stmt->bindValue(":location", $location);
                           $stmt->bindValue(":filename", $newname);
                           $stmt->bindValue(":dir", $target_file); //dir is path of the file
@@ -128,7 +127,7 @@ PRIMARY KEY (`id`)
                               }
                           }
                           echo "The file " . basename($_FILES["pan"]["name"]) . " has been uploaded.";
-                          echo '<br> <a href="../panoramaForm.php">Return</a>';
+                          echo '<br> <a href="../">Return</a>';
                       } else {
                           echo "Sorry, there was an error uploading your file. <br>";
                           echo '<a href="/">Return</a>';
@@ -154,7 +153,7 @@ PRIMARY KEY (`id`)
               $stmt->execute(); */
           } else {
               echo "Sorry, pleas log in first <br>";
-              echo '<a href="../panoramaForm.php">Return</a>';
+              echo '<a href="../">Return</a>';
           }
       }
 } catch (Exception $e) {

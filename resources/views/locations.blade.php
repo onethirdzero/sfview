@@ -14,11 +14,9 @@
 
 <html>
 
-<head>
-<style>
-<?php include "./css/app.css";?>
-</style>
-</head>
+ <head>
+        <link rel="stylesheet" href="./css/app.css">
+  </head>
 
 <?php
 session_start();
@@ -80,10 +78,10 @@ if (isset($_SESSION["username"])){
               $current = $next;
               echo '<tr>';
               echo '<td>';
-              echo '<a href="./panoramaInfo/panoramaSearch.php?location='.$next["location"].'">'.$next["location"].'</a> <br>';
+              echo '<a href="/php/panoramaSearch.php?location='.$next["location"].'">'.$next["location"].'</a> <br>';
               echo '<td>';
                 echo '<td>';
-                echo $next["diction"];
+                echo $next["dirction"];
                 echo '<td>';
               echo '</tr>';
             }
