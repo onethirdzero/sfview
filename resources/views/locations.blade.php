@@ -35,14 +35,14 @@ if (isset($_SESSION["username"])){
 }
 ?>
 
-<body style="background-color: antiquewhite">
+<body>
+    <h1>All locations in Database</h1>
+    <table class="table">
 
-<div class="formDiv">
-  <form action="./panoramaInfo/panoramaUpload.php" method="POST" enctype="multipart/form-data">
-    <fieldset>
-      <legend>All Panoramas</legend>
-      <div class="form-group row">
-
+          <th>
+              <td>Location</td>
+              <td>Acceptible Phrases</td>
+          </th>
       
         <?php
         
@@ -75,7 +75,14 @@ if (isset($_SESSION["username"])){
             while ($next = $stmt->fetch())
             {
               $current = $next;
+              echo '<tr>';
+              echo '<td>';
               echo '<a href="./panoramaInfo/panoramaSearch.php?location='.$next["location"].'">'.$next["location"].'</a> <br>';
+              echo '<td>';
+                echo '<td>';
+                echo $next["diction"];
+                echo '<td>';
+              echo '</tr>';
             }
             echo "<br>";
             echo "<a href='./panoramaList.php?page=1'>".'|<'."</a> "; // first page
@@ -88,9 +95,7 @@ if (isset($_SESSION["username"])){
           //test:
 
          ?>
-      </div>
-    </fieldset>
-  </div>
+    </table>
 
 <!-- php logic (put in panoramaUpload.php): image is added to db, we retrieve image from db and create
 a panorama. we show this panorama to the user and ask them to add markers -->
