@@ -11,6 +11,14 @@
 
 {{-- Fill in our content. --}}
 @section('content')
+
+<?php
+if (!is_null(Auth::user()))
+{
+    echo "<p style='font-size: 20px; padding-left: 10px; font-weight: bold;'>Welcome ".Auth::user()->name."!</p>";
+}
+?>
+
 <div class="panorama" id="viewer" style="width: 100vw; height: 90vh;"></div>
 
 <div>
