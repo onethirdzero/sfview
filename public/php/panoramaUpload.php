@@ -38,13 +38,13 @@ PRIMARY KEY (`id`)
 
  */
  session_start();
- echo "start";
+//  echo "start";
  //$files = multiple($_FILES);
 //print_r($files);
- echo $_FILES['pan']['name'];
+//  echo $_FILES['pan']['name'];
  $target_dir = "/panoramas/";
  $target_file = $_SERVER['DOCUMENT_ROOT'].$target_dir.basename($_FILES['pan']['name']);
- echo $target_file;
+//  echo $target_file;
  $uploadOk = 1;
 
  /*
@@ -78,7 +78,7 @@ PRIMARY KEY (`id`)
               $pass = "pass";
               $pdo = new PDO($connString, $user, $pass);
 
-              $username = $_SESSION['username'];
+            //   $username = $_SESSION['username'];
               $location = $_POST['location'];
 
               $sql = "SELECT * FROM locations WHERE location = :location";
@@ -109,20 +109,20 @@ PRIMARY KEY (`id`)
                           $stmt->execute();
 
                           //add the markers
-                          $MarkerNumber = $_POST['number'];
-                          if ($MarkerNumber != 0) {
-                              for ($i = 0; $i < $MarkerNumber; $i++) {
-                                  $sql = "INSERT INTO marker(name, location)
-                         VALUES(:name, :location)";
-                                  $bstmt = $pdo->prepare($sql);
-                                  $marker = $_POST['Marker'];
-                                  if ($marker != "") {
-                                      $bstmt->bindValue(":name", $marker[$i]);
-                                      $bstmt->bindValue(":location", $location);
-                                      $bstmt->execute();
-                                  }
-                              }
-                          }
+                        //   $MarkerNumber = $_POST['number'];
+                        //   if ($MarkerNumber != 0) {
+                        //       for ($i = 0; $i < $MarkerNumber; $i++) {
+                        //           $sql = "INSERT INTO marker(name, location)
+                        //  VALUES(:name, :location)";
+                        //           $bstmt = $pdo->prepare($sql);
+                        //           $marker = $_POST['Marker'];
+                        //           if ($marker != "") {
+                        //               $bstmt->bindValue(":name", $marker[$i]);
+                        //               $bstmt->bindValue(":location", $location);
+                        //               $bstmt->execute();
+                        //           }
+                        //       }
+                        //   }
                           echo "The file " . basename($_FILES["pan"]["name"]) . " has been uploaded.";
                           echo '<br> <a href="../">Return</a>';
                       } else {
