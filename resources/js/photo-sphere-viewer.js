@@ -63,14 +63,15 @@ function addMarkerToPan2(pan, id, info) {
 }
 
 // Quick example of panorama and marker logic
-if (typeof(imagePath))
+if (typeof(imagePath) !== "undefined")
 {
     console.log(imagePath);
-    var pan = setPanorama("view5", "img/wideview.jpg", "SFU Burnaby Campus");
+    var pan = setPanorama("view5", imagePath, "SFU Burnaby Campus");
 }
 else
 {
     console.log("no image path");
+    var pan = setPanorama("viewer", 'img/wideview.jpg', "SFU Burnaby Campus");
 }
 
 var info = "<b>Welcome to SFView!</b> <br> To explore the SFU Burnaby Campus, press space!"

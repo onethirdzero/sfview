@@ -66,10 +66,6 @@ PRIMARY KEY (`id`)
   */
 
   try {
-      if ($_FILES["pan"]["size"] > 5000000) {
-          echo "Sorry, your file is too large.<br>";
-          $uploadOk = 0;
-      }
       if ($uploadOk == 0) {
           echo "Sorry, your file was not uploaded.<br>";
           echo '<a href="../">Return</a>';

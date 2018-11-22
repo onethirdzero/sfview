@@ -21,7 +21,7 @@ console.log("inside panorama file");
 <div class="panorama" id="view5" style="width: 100vw; height: 90vh;"></div>
 
 <script>
-var imagePath = <?php echo "'".$wildcard_filename."'"; ?>;
+var imagePath = <?php echo "'"."/panoramas/".$wildcard_filename."'"; ?>;
 console.log(imagePath);
 </script>
 

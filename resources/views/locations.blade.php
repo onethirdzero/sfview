@@ -80,9 +80,9 @@ if (isset($_SESSION["username"])){
               echo '<td>';
               echo '<a href="/panorama/'.$next["filename"].'">'.$next["location"].'</a> <br>';
               echo '<td>';
-                echo '<td>';
-                echo $next["dirction"];
-                echo '<td>';
+              echo '<td>';
+              echo $next["location"];
+              echo '<td>';
               echo '</tr>';
             }
             echo "<br>";
