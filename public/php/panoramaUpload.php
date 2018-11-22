@@ -94,7 +94,7 @@ PRIMARY KEY (`id`)
                   $filetype = strrchr($_FILES['pan']['name'], ".");
                   //$newname = $D . $filetype;
                   $newname = $_FILES['pan']['name'];
-                  $target_file = $_SERVER['DOCUMENT_ROOT'] . $target_dir . $newname;
+                  $diction = $_POST['diction'];
                   if (file_exists($target_file)) {
                       echo "cannot upload it now because there is another file with the same name";
                       echo '<a href="/">Return</a>';
@@ -105,7 +105,7 @@ PRIMARY KEY (`id`)
                           $stmt = $pdo->prepare($sql);
                           $stmt->bindValue(":location", $location);
                           $stmt->bindValue(":filename", $newname);
-                          $stmt->bindValue(":dir", $target_file); //dir is path of the file
+                          $stmt->bindValue(":dir", $diction); //dir is path of the file
                           $stmt->execute();
 
                           //add the markers

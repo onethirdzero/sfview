@@ -81,7 +81,7 @@ if (isset($_SESSION["username"])){
               echo '<a href="/panorama/'.$next["filename"].'">'.$next["location"].'</a> <br>';
               echo '<td>';
               echo '<td>';
-              echo $next["location"];
+              echo $next["dirction"];
               echo '<td>';
               echo '</tr>';
             }
