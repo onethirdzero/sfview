@@ -25,7 +25,7 @@
                     <h3 class="title" style='color: #A6192E'>{{ __('Upload Panorama') }}</h3>
 
                     <form method="POST" action="/php/panoramaUpload.php" enctype="multipart/form-data" >
-                
+                    @csrf
 
                         <div class="field">
                             <label class="label" for="location">{{ __('Location Name') }}</label>

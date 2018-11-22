@@ -46,4 +46,9 @@ class HomeController extends Controller
     {
         return view('help');
     }
+
+    public function panorama()
+    {
+        return view('panorama');
+    }
 }

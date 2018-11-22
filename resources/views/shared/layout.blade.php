@@ -14,8 +14,7 @@
         {{-- Styles go here. --}}
         @include('shared.styles')
         {{-- Scripts go here. --}}
-        @section('scripts')
-        @show
+        @include('scripts')
         <script defer type="text/javascript" src="{{ asset('js/navbar-burger.js') }}"></script>
     </head>
     <body>
