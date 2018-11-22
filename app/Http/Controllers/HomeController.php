@@ -47,8 +47,8 @@ class HomeController extends Controller
         return view('help');
     }
 
-    public function panorama()
+    public function panorama($wildcard_filename)
     {
-        return view('panorama');
+        return view('panorama', compact('wildcard_filename'));
     }
 }

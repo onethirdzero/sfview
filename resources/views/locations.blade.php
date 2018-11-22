@@ -78,7 +78,7 @@ if (isset($_SESSION["username"])){
               $current = $next;
               echo '<tr>';
               echo '<td>';
-              echo '<a href="/php/panoramaSearch.php?location='.$next["location"].'">'.$next["location"].'</a> <br>';
+              echo '<a href="/panorama/'.$next["filename"].'">'.$next["location"].'</a> <br>';
               echo '<td>';
                 echo '<td>';
                 echo $next["dirction"];

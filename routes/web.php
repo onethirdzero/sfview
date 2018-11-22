@@ -24,5 +24,4 @@ Route::get('/locations', 'HomeController@locations')->name('locations');
 Route::get('/upload', 'HomeController@upload')->name('upload');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/help', 'HomeController@help')->name('help');
-Route::get('/panorama', 'HomeController@panorama')->name('panorama');
-Route::get('/panorama/{{wildcard}');
+Route::get('/panorama/{wildcard_filename}', 'HomeController@panorama')->name('panorama');

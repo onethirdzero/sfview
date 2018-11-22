@@ -94,9 +94,10 @@ PRIMARY KEY (`id`)
                   echo "This location's photosphere already exists <br>";
                   echo '<a href="/">Return</a>';
               } else {
-                  $D = md5(time() . 'daxin');
+                  //$D = md5(time() . 'daxin');
                   $filetype = strrchr($_FILES['pan']['name'], ".");
-                  $newname = $D . $filetype;
+                  //$newname = $D . $filetype;
+                  $newname = $_FILES['pan']['name'];
                   $target_file = $_SERVER['DOCUMENT_ROOT'] . $target_dir . $newname;
                   if (file_exists($target_file)) {
                       echo "cannot upload it now because there is another file with the same name";
