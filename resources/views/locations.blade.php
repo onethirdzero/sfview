@@ -86,11 +86,11 @@ if (isset($_SESSION["username"])){
               echo '</tr>';
             }
             echo "<br>";
-            echo "<a href='./panoramaList.php?page=1'>".'|<'."</a> "; // first page
+            echo "<a href='./locations/?page=1'>".'|<'."</a> "; // first page
             for ($i=1; $i<=$pages; $i++) {
-              echo "<a href='./panoramaList.php?page=".$i."'>".$i."</a> ";
+              echo "<a href='./locations/?page=".$i."'>".$i."</a> ";
             };
-            echo "<a href='./panoramaList.php?page=$pages'>".'>|'."</a> "; // last page
+            echo "<a href='./locations/?page=$pages'>".'>|'."</a> "; // last page
           }
 
           //test:
