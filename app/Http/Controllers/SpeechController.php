@@ -7,6 +7,7 @@ use Google\Cloud\Speech\SpeechClient;
 use Illuminate\Http\Request;
 use Debugbar;
 use FFMpeg;
+use Illuminate\Support\Facades\DB;
 
 
 class SpeechController extends Controller
@@ -48,10 +49,33 @@ class SpeechController extends Controller
         unlink(storage_path('app/' . $trackName . '.wav'));
 
         Debugbar::info($results);
-
-        foreach ($results as $result) {
-            return 'Transcription: ' . $result->alternatives()[0]['transcript'] . PHP_EOL;
+        if ($results == []) {
+            return "Didn't catch that. Try again.";
         }
+
+        $transcript = $results[0]->alternatives()[0]['transcript'];
+        $transcript = strtolower($transcript);
+
+        // Use the transcript to query the db for a valid location.
+        $pdo = DB::connection('mysql')->getPdo();
+
+        define("DBUSER", "sfview_user");
+        define("DBPASS", "pass");
+
+        $sql = "SELECT location FROM locations WHERE location = :location";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(":location", $transcript);
+        $success = $stmt->execute();
+
+        if ($success) {
+            $result = $stmt->fetch();
+            return $result['location'];
+        } else {
+            return "No such location: {$transcript}";
+        }
+
+        // return redirect()->route('HomeController@panorama', ['wildcard_filename' => $transcript]);
+
     }
 }
 

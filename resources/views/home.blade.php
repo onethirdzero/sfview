@@ -19,5 +19,6 @@
 <div>
     <p>Press space to speak a new location!</p>
     <p id="voice-input-result" style="font-style: italic;">...diagnostic messages</p>
+    <a id="transcript-result"></a>
 </div>
 @endsection

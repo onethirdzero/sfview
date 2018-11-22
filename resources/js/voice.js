@@ -56,8 +56,20 @@ var startRecognition = () => {
           },
             'json'
           ).done((response) => {
-            console.log('Response: ', response);
-            diagnostic.textContent = 'Response: ' + response + '.';
+            console.log(response);
+            if (response.includes('Didn\'t catch that')) {
+              diagnostic.textContent = response;
+            } else if (response.includes('No such location')) {
+              diagnostic.textContent = response;
+            } else {
+              // Clear diagnostic message.
+              diagnostic.textContent = '';
+
+              // Add link to panorama.
+              var locationAnchor = document.querySelector('#transcript-result');
+              locationAnchor.href = '/panorama/' + response + '.JPG';
+              locationAnchor.innerHTML = response;
+            }
           });
         }
       });
