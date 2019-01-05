@@ -28,6 +28,7 @@
         "node-sass": "^4.10.0",
         "photo-sphere-viewer": "^3.4.1",
         "three": "^0.98.0",
-        "uevent": "^1.0.0"
+        "uevent": "^1.0.0",
+        "vue-router": "^3.0.2"
     }
 }
